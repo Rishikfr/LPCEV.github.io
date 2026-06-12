@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Las Positas College Solar Expansion | Capital Project Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0D1B2A;
+    --bg-2:#102338;
+    --panel:#13263b;
+    --panel-2:#17304a;
+    --line:#264058;
+    --line-soft:#1d3347;
+    --txt:#E6EDF5;
+    --txt-2:#C2D0DF;
+    --muted:#8499AE;
+    --amber:#F5A623;
+    --green:#1D9E75;
+    --blue:#378ADD;
+    --yellow:#E7C24B;
+    --red:#E24B4A;
+    --radius:10px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--txt);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.55;font-size:16px;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{margin:0;letter-spacing:-.018em;font-weight:700}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,27,42,.9);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-inner{display:flex;align-items:center;gap:12px;height:60px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14.5px;white-space:nowrap;letter-spacing:-.01em}
+  .brand .mark{width:30px;height:30px;border-radius:7px;background:var(--amber);color:#0D1B2A;display:grid;place-items:center;font-size:11px;font-weight:800;letter-spacing:.02em}
+  .nav-links{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{
+    color:var(--muted);font-size:13.5px;font-weight:500;padding:8px 12px;border-radius:7px;white-space:nowrap;
+  }
+  .nav-links a:hover,.nav-links a.active{color:var(--txt);background:var(--panel-2)}
+  .menu-btn{display:none}
+
+  section{padding:72px 0}
+  section + section{border-top:1px solid var(--line-soft)}
+  .eyebrow{color:var(--muted);font-weight:600;font-size:12px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:14px}
+  .eyebrow b{color:var(--amber);font-weight:700}
+  h2.title{font-size:clamp(25px,4.2vw,34px);line-height:1.12;margin-bottom:14px;font-weight:700}
+  .lead{color:var(--txt-2);font-size:clamp(15px,2.1vw,16.5px);max-width:660px}
+  .lead b{color:var(--txt);font-weight:600}
+
+  /* HERO */
+  .hero{padding-top:60px;padding-bottom:60px}
+  .hero h1{font-size:clamp(30px,6vw,50px);line-height:1.06;margin-bottom:20px;font-weight:800;max-width:880px}
+  .hero h1 .accent{color:var(--amber)}
+  .hero p.lead{font-size:clamp(16px,2.4vw,18px);margin-bottom:28px;max-width:700px}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+  .chip{font-size:12.5px;font-weight:500;color:var(--txt-2);border:1px solid var(--line);background:var(--panel);padding:6px 12px;border-radius:6px}
+  .chip b{color:var(--txt);font-weight:600}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .stat{background:var(--panel);padding:22px 20px}
+  .stat .num{font-weight:700;font-size:clamp(23px,3.4vw,31px);line-height:1;letter-spacing:-.02em}
+  .stat .lbl{color:var(--muted);font-size:12.5px;margin-top:9px;font-weight:500}
+  .stat.green .num{color:var(--green)} .stat.amber .num{color:var(--amber)}
+  .stat.blue .num{color:var(--blue)} .stat.neutral .num{color:var(--txt)} .stat.red .num{color:var(--red)}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+
+  /* FINANCIAL MODEL */
+  .fin{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:22px;align-items:start}
+  .controls .row{margin-bottom:17px}
+  .controls .row:last-child{margin-bottom:0}
+  .controls label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:500;margin-bottom:8px;color:var(--txt-2)}
+  .controls label .val{color:var(--txt);font-weight:700;font-size:13.5px;font-variant-numeric:tabular-nums}
+  input[type=range]{
+    -webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;
+    background:linear-gradient(90deg,var(--amber) var(--p,40%),#22384e var(--p,40%));outline:none;margin:0;
+  }
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--amber);border:2px solid #0D1B2A;cursor:pointer}
+  input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--amber);border:2px solid #0D1B2A;cursor:pointer}
+  .ctrl-head{font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line-soft)}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .tile{background:var(--panel);padding:16px}
+  .tile .t-lbl{color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+  .tile .t-val{font-weight:700;font-size:clamp(18px,2.4vw,23px);margin-top:8px;line-height:1;font-variant-numeric:tabular-nums}
+  .tile .t-sub{color:var(--muted);font-size:11.5px;margin-top:7px;line-height:1.4}
+  .tile.pos .t-val{color:var(--green)} .tile.neg .t-val{color:var(--red)}
+  .tile.blue .t-val{color:var(--blue)} .tile.amber .t-val{color:var(--amber)}
+  .note{margin-top:16px;background:var(--bg-2);border:1px solid var(--line-soft);border-left:3px solid var(--blue);border-radius:6px;padding:14px 16px;font-size:13px;color:var(--txt-2);line-height:1.55}
+  .note b{color:var(--txt)}
+
+  /* baseline reference */
+  .baseline{margin-top:22px}
+  .baseline .bl-head{font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;margin-bottom:14px}
+  .bl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .bl{background:var(--panel);padding:14px 16px}
+  .bl b{display:block;font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
+  .bl span{font-size:12px;color:var(--muted);display:block;margin-top:3px}
+  .bl em{font-style:normal;font-size:10.5px;color:var(--muted);opacity:.75;display:block;margin-top:5px}
+
+  /* SIM CHART */
+  .legend{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 16px;font-size:12.5px;color:var(--muted)}
+  .legend span{display:flex;align-items:center;gap:7px}
+  .legend i{width:11px;height:11px;border-radius:2px;display:inline-block}
+  .chart-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .chart{display:flex;gap:8px;align-items:flex-end;min-height:290px;min-width:660px;padding:8px 4px 0}
+  .barcol{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;min-width:44px}
+  .bar-stack{width:100%;max-width:42px;display:flex;flex-direction:column-reverse;border-radius:3px 3px 0 0;overflow:hidden;transition:opacity .15s;opacity:.92}
+  .barcol:hover .bar-stack,.barcol.active .bar-stack{opacity:1}
+  .barcol.active .bar-stack{outline:2px solid var(--amber);outline-offset:2px}
+  .seg{width:100%}
+  .seg.export{background:var(--blue)} .seg.gas{background:var(--amber)} .seg.ev{background:var(--yellow)}
+  .barcol .net{font-size:11px;color:var(--txt-2);font-weight:600;font-variant-numeric:tabular-nums}
+  .barcol .mo{font-size:12.5px;color:var(--muted);font-weight:500}
+  .barcol.active .mo{color:var(--txt);font-weight:600}
+  .detail{margin-top:16px;background:var(--bg-2);border:1px solid var(--line-soft);border-radius:var(--radius);padding:18px 20px;min-height:88px}
+  .detail h4{font-size:16px;margin-bottom:7px;font-weight:700}
+  .detail p{color:var(--txt-2);font-size:13.5px;margin:0;line-height:1.55}
+  .detail .dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(108px,1fr));gap:1px;margin-top:16px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .detail .dgrid div{background:var(--panel);padding:11px 13px}
+  .detail .dgrid b{display:block;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+  .detail .dgrid span{font-size:11px;color:var(--muted)}
+
+  /* MAP */
+  svg.map{width:100%;height:auto;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius)}
+  .lot{cursor:pointer}
+  .lot rect.fill{transition:fill-opacity .15s}
+  .lot:hover rect.fill{fill-opacity:1}
+  .lot-label{font-weight:800;fill:#0D1B2A;font-size:16px;font-family:'Inter'}
+  .lot-sub{fill:#0D1B2A;fill-opacity:.7;font-size:9px;font-weight:600;font-family:'Inter'}
+  .phase-key{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+  .pk{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:500;border:1px solid var(--line);background:var(--panel);padding:7px 12px;border-radius:6px;color:var(--txt-2)}
+  .pk i{width:12px;height:12px;border-radius:3px}
+
+  /* TIMELINE */
+  .tl{overflow-x:auto;padding-bottom:10px}
+  .tl-track{display:flex;min-width:820px}
+  .tl-step{flex:1;min-width:135px;position:relative;padding:0 8px}
+  .tl-step::before{content:"";position:absolute;top:12px;left:0;right:0;height:2px;background:var(--line)}
+  .tl-step:first-child::before{left:50%}
+  .tl-step:last-child::before{right:50%}
+  .tl-node{position:relative;width:24px;height:24px;border-radius:50%;background:var(--panel);border:2px solid var(--amber);margin:0 auto 14px;display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--amber);z-index:2}
+  .tl-step.crit .tl-node{border-color:var(--red);color:var(--red)}
+  .tl-card h4{font-size:13.5px;margin-bottom:6px;min-height:36px;font-weight:600;line-height:1.25}
+  .tl-card .dur{font-size:11.5px;color:var(--amber);font-weight:600}
+  .tl-card.crit .dur{color:var(--red)}
+  .tl-card .desc{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.4}
+  .tl-card .cost{font-size:11.5px;color:var(--txt-2);font-weight:600;margin-top:6px;font-variant-numeric:tabular-nums}
+  .crit-tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;color:var(--red);border:1px solid var(--red);border-radius:4px;padding:1px 5px;margin-top:6px;text-transform:uppercase}
+
+  /* FINANCING */
+  .fin-bar{display:flex;height:46px;border-radius:8px;overflow:hidden;border:1px solid var(--line);margin:20px 0}
+  .fin-seg{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#0D1B2A;min-width:0;padding:0 6px;text-align:center}
+  .fin-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .fl{display:flex;gap:12px;align-items:flex-start;background:var(--panel);padding:16px}
+  .fl i{width:11px;height:11px;border-radius:3px;margin-top:5px;flex-shrink:0}
+  .fl b{font-size:18px;display:block;font-weight:700;font-variant-numeric:tabular-nums}
+  .fl span{font-size:12.5px;color:var(--muted);line-height:1.45;display:block;margin-top:2px}
+
+  /* CHALLENGES */
+  .ch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .ch{background:var(--panel);padding:20px}
+  .ch .tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 7px;margin-bottom:12px}
+  .ch h4{font-size:15px;margin-bottom:8px;font-weight:600}
+  .ch p{font-size:13px;color:var(--muted);margin:0;line-height:1.5}
+
+  footer{border-top:1px solid var(--line-soft);padding:34px 0 56px;color:var(--muted);font-size:12.5px}
+  footer h5{color:var(--txt);font-size:12px;margin:0 0 12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+  footer ol{margin:0;padding-left:20px;display:grid;gap:6px;line-height:1.5}
+  footer .disclaimer{margin-top:22px;padding-top:18px;border-top:1px solid var(--line-soft);font-size:11.5px;line-height:1.55;max-width:760px}
+
+  @media(max-width:820px){
+    .stat-grid{grid-template-columns:repeat(2,1fr)}
+    .fin{grid-template-columns:1fr}
+    .tiles{grid-template-columns:repeat(2,1fr)}
+    .bl-grid{grid-template-columns:repeat(2,1fr)}
+    section{padding:52px 0}
+    .nav-links{display:none}
+    .menu-btn{display:grid;place-items:center;margin-left:auto;width:38px;height:38px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--txt);font-size:17px;cursor:pointer}
+    .nav-links.open{display:flex;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:rgba(13,27,42,.98);border-bottom:1px solid var(--line);padding:8px 16px 14px;overflow-x:hidden}
+    .nav-links.open a{padding:11px 12px}
+  }
+  @media(max-width:480px){
+    .tiles,.bl-grid{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="mark">LPC</span> Solar Carport Expansion</div>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">&#9776;</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#overview">Overview</a>
+      <a href="#problem">The Problem</a>
+      <a href="#model">Financial Model</a>
+      <a href="#sim">Simulation</a>
+      <a href="#map">Site Plan</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#payoff">Payoff</a>
+      <a href="#financing">Financing</a>
+      <a href="#challenges">Risks</a>
+    </nav>
+  </div>
+</header>
+
+<!-- 1. OVERVIEW -->
+<section id="overview" class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Team Transportation Transformers <b>&middot;</b> Las Positas College <b>&middot;</b> Livermore, CA</div>
+    <h1>Turn the campus into a <span class="accent">solar power plant</span> that funds clean transportation.</h1>
+    <p class="lead">Transportation is the single largest source of Las Positas' carbon emissions. The plan: roughly double our solar to about <b>4.35 MW</b> by adding carport canopies over the parking lots, free up the <b>~$1M/year</b> we pay PG&amp;E, and reinvest that money into free EV charging, better transit, and dividends that reward going electric.</p>
+    <div class="meta-row">
+      <span class="chip"><b>+2 MW</b> new carport solar</span>
+      <span class="chip"><b>Net-Zero</b> energy by 2035</span>
+      <span class="chip"><b>1% CEC</b> loan financing</span>
+      <span class="chip"><b>Funds</b> the EV transition</span>
+    </div>
+    <div class="stat-grid">
+      <div class="stat red"><div class="num" data-count="13239" data-suffix=" t" data-dec="0">0</div><div class="lbl">Tons of CO2 emitted (2018)</div></div>
+      <div class="stat amber"><div class="num" data-count="73" data-suffix="%" data-dec="0">0</div><div class="lbl">From student commuting</div></div>
+      <div class="stat blue"><div class="num" data-count="4.35" data-suffix=" MW" data-dec="2">0</div><div class="lbl">Planned solar capacity</div></div>
+      <div class="stat green"><div class="num" data-count="1" data-prefix="$" data-suffix="M/yr" data-dec="0">$0</div><div class="lbl">PG&amp;E cost freed up</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. FINANCIAL MODEL -->
+<section id="model">
+  <div class="wrap">
+    <div class="eyebrow">Interactive Financial Model</div>
+    <h2 class="title">Project economics</h2>
+    <p class="lead" style="margin-bottom:26px">Defaults are set to current Livermore and Las Positas regional averages (listed below). Adjust any assumption to see the economics recalculate. All math runs locally in the browser.</p>
+    <div class="fin">
+      <div class="controls card">
+        <div class="ctrl-head">Assumptions</div>
+        <div class="row"><label>New capacity <span class="val" id="lblKw">2,000 kW</span></label><input type="range" id="kw" min="500" max="3000" step="50" value="2000"></div>
+        <div class="row"><label>Installed cost per watt <span class="val" id="lblCpw">$3.10</span></label><input type="range" id="cpw" min="2.4" max="4.2" step="0.05" value="3.10"></div>
+        <div class="row"><label>Grant / ITC coverage <span class="val" id="lblGrant">30%</span></label><input type="range" id="grant" min="0" max="60" step="1" value="30"></div>
+        <div class="row"><label>New staff hired (FTE) <span class="val" id="lblFte">3</span></label><input type="range" id="fte" min="0" max="8" step="1" value="3"></div>
+        <div class="row"><label>Gas vehicle permit, annual <span class="val" id="lblGas">$99</span></label><input type="range" id="gas" min="0" max="200" step="1" value="99"></div>
+        <div class="row"><label>EV permit, annual <span class="val" id="lblEv">$50</span></label><input type="range" id="ev" min="0" max="150" step="1" value="50"></div>
+        <div class="row"><label>NEM 3.0 export rate <span class="val" id="lblExp">9&cent;</span></label><input type="range" id="exp" min="3" max="20" step="0.5" value="9"></div>
+        <div class="row"><label>PG&amp;E retail rate <span class="val" id="lblRet">43&cent;</span></label><input type="range" id="ret" min="25" max="60" step="1" value="43"></div>
+      </div>
+      <div>
+        <div class="tiles">
+          <div class="tile amber"><div class="t-lbl">Gross capex</div><div class="t-val" id="oGross">--</div><div class="t-sub" id="oGrossSub"></div></div>
+          <div class="tile blue"><div class="t-lbl">Net capex after grants</div><div class="t-val" id="oNet">--</div><div class="t-sub" id="oNetSub"></div></div>
+          <div class="tile pos"><div class="t-lbl">Annual cash revenue</div><div class="t-val" id="oCash">--</div><div class="t-sub">grid export plus parking</div></div>
+          <div class="tile"><div class="t-lbl">Annual avoided cost</div><div class="t-val" id="oAvoid" style="color:var(--muted)">--</div><div class="t-sub">not spendable cash</div></div>
+          <div class="tile pos" id="netCashTile"><div class="t-lbl">Cash net (after ops, debt)</div><div class="t-val" id="oNetCash">--</div><div class="t-sub" id="oNetCashSub"></div></div>
+          <div class="tile amber"><div class="t-lbl">Payback on $1.9M</div><div class="t-val" id="oPayback">--</div><div class="t-sub">cash revenue only</div></div>
+        </div>
+        <div class="note">Payback is measured against <b>cash only</b>, meaning grid exports and parking revenue net of operating costs and debt service. Avoided utility cost reduces the college share of the district utility budget, but it is not money the college can redeploy, so it is excluded from payback.</div>
+
+        <div class="baseline">
+          <div class="bl-head">Regional baseline (Livermore &amp; Las Positas averages)</div>
+          <div class="bl-grid">
+            <div class="bl"><b>5.5 hrs</b><span>Avg peak sun hours / day</span><em>Annual mean, Livermore</em></div>
+            <div class="bl"><b>43&cent;/kWh</b><span>PG&amp;E retail rate</span><em>EnergySage, 2026</em></div>
+            <div class="bl"><b>9&cent;/kWh</b><span>NEM 3.0 export rate</span><em>SolarPermitSolutions, 2026</em></div>
+            <div class="bl"><b>8,103</b><span>Fall enrollment</span><em>CollegeTuitionCompare</em></div>
+            <div class="bl"><b>$6.0M/yr</b><span>District utility budget</span><em>CLPCCD 2025-26 Adopted</em></div>
+            <div class="bl"><b>2.35 MW</b><span>Existing PV array</span><em>On-campus, operational</em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SIMULATION -->
+<section id="sim">
+  <div class="wrap">
+    <div class="eyebrow">Full-Year Simulation</div>
+    <h2 class="title">Monthly cash revenue</h2>
+    <p class="lead" style="margin-bottom:20px">Modeled on Livermore seasonal data, with peak sun hours, UV index, enrollment by semester, and PG&amp;E time-of-use rate swings. Bars show <b>cash revenue only</b>. Select any month for detail.</p>
+    <div class="legend">
+      <span><i style="background:var(--blue)"></i> Grid export</span>
+      <span><i style="background:var(--amber)"></i> Gas parking</span>
+      <span><i style="background:var(--yellow)"></i> EV parking</span>
+      <span>Monthly net shown above each bar</span>
+    </div>
+    <div class="card" style="padding:16px">
+      <div class="chart-wrap"><div class="chart" id="chart"></div></div>
+    </div>
+    <div class="detail" id="moDetail">
+      <h4>Select a month above</h4>
+      <p>Each month reflects seasonal sun hours, semester enrollment, and rate fluctuation. <b style="color:var(--txt)">September peaks</b> because annual parking permits ($99 gas, $50 EV) are billed as a lump sum at fall registration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. MAP -->
+<section id="map">
+  <div class="wrap">
+    <div class="eyebrow">Site Plan</div>
+    <h2 class="title">Parking lot phasing</h2>
+    <p class="lead" style="margin-bottom:20px">Eleven lots across three deployment phases. <b>Lot O</b> leads as Phase 1 because it sits closest to the existing array and grid interconnection point, the fastest path to first power.</p>
+    <svg class="map" viewBox="0 0 800 460" role="img" aria-label="Campus parking lot phasing map">
+      <defs>
+        <pattern id="panels" width="13" height="13" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
+          <rect width="13" height="13" fill="transparent"/><line x1="0" y1="0" x2="0" y2="13" stroke="rgba(13,27,42,.25)" stroke-width="1.5"/>
+        </pattern>
+      </defs>
+      <path d="M40 230 H760" stroke="#1d3347" stroke-width="9" fill="none"/>
+      <path d="M400 30 V430" stroke="#1d3347" stroke-width="9" fill="none"/>
+      <g class="lot" data-lot="O"><rect class="fill" x="430" y="250" width="150" height="80" rx="6" fill="#F5A623" fill-opacity=".92"/><rect x="430" y="250" width="150" height="80" rx="6" fill="url(#panels)"/><text class="lot-label" x="505" y="288" text-anchor="middle">O</text><text class="lot-sub" x="505" y="304" text-anchor="middle">Phase 1 / nearest array</text></g>
+      <g class="lot" data-lot="P"><rect class="fill" x="600" y="250" width="150" height="80" rx="6" fill="#F5A623" fill-opacity=".92"/><rect x="600" y="250" width="150" height="80" rx="6" fill="url(#panels)"/><text class="lot-label" x="675" y="288" text-anchor="middle">P</text><text class="lot-sub" x="675" y="304" text-anchor="middle">Phase 1</text></g>
+      <g class="lot" data-lot="A"><rect class="fill" x="430" y="345" width="150" height="75" rx="6" fill="#F5A623" fill-opacity=".92"/><rect x="430" y="345" width="150" height="75" rx="6" fill="url(#panels)"/><text class="lot-label" x="505" y="380" text-anchor="middle">A</text><text class="lot-sub" x="505" y="396" text-anchor="middle">Phase 1</text></g>
+      <g class="lot" data-lot="B"><rect class="fill" x="220" y="250" width="170" height="80" rx="6" fill="#378ADD" fill-opacity=".88"/><rect x="220" y="250" width="170" height="80" rx="6" fill="url(#panels)"/><text class="lot-label" x="305" y="288" text-anchor="middle">B</text><text class="lot-sub" x="305" y="304" text-anchor="middle">Phase 2</text></g>
+      <g class="lot" data-lot="C"><rect class="fill" x="220" y="345" width="170" height="75" rx="6" fill="#378ADD" fill-opacity=".88"/><rect x="220" y="345" width="170" height="75" rx="6" fill="url(#panels)"/><text class="lot-label" x="305" y="380" text-anchor="middle">C</text><text class="lot-sub" x="305" y="396" text-anchor="middle">Phase 2</text></g>
+      <g class="lot" data-lot="D"><rect class="fill" x="220" y="120" width="170" height="100" rx="6" fill="#378ADD" fill-opacity=".88"/><rect x="220" y="120" width="170" height="100" rx="6" fill="url(#panels)"/><text class="lot-label" x="305" y="168" text-anchor="middle">D</text><text class="lot-sub" x="305" y="184" text-anchor="middle">Phase 2</text></g>
+      <g class="lot" data-lot="E"><rect class="fill" x="430" y="120" width="150" height="100" rx="6" fill="#1D9E75" fill-opacity=".85"/><rect x="430" y="120" width="150" height="100" rx="6" fill="url(#panels)"/><text class="lot-label" x="505" y="168" text-anchor="middle">E</text><text class="lot-sub" x="505" y="184" text-anchor="middle">Phase 3</text></g>
+      <g class="lot" data-lot="F"><rect class="fill" x="600" y="120" width="150" height="100" rx="6" fill="#1D9E75" fill-opacity=".85"/><rect x="600" y="120" width="150" height="100" rx="6" fill="url(#panels)"/><text class="lot-label" x="675" y="168" text-anchor="middle">F</text><text class="lot-sub" x="675" y="184" text-anchor="middle">Phase 3</text></g>
+      <g class="lot" data-lot="G"><rect class="fill" x="50" y="120" width="150" height="100" rx="6" fill="#1D9E75" fill-opacity=".85"/><rect x="50" y="120" width="150" height="100" rx="6" fill="url(#panels)"/><text class="lot-label" x="125" y="168" text-anchor="middle">G</text><text class="lot-sub" x="125" y="184" text-anchor="middle">Phase 3</text></g>
+      <g class="lot" data-lot="H"><rect class="fill" x="50" y="250" width="150" height="80" rx="6" fill="#1D9E75" fill-opacity=".85"/><rect x="50" y="250" width="150" height="80" rx="6" fill="url(#panels)"/><text class="lot-label" x="125" y="288" text-anchor="middle">H</text><text class="lot-sub" x="125" y="304" text-anchor="middle">Phase 3</text></g>
+      <g class="lot" data-lot="J"><rect class="fill" x="50" y="345" width="150" height="75" rx="6" fill="#1D9E75" fill-opacity=".85"/><rect x="50" y="345" width="150" height="75" rx="6" fill="url(#panels)"/><text class="lot-label" x="125" y="380" text-anchor="middle">J</text><text class="lot-sub" x="125" y="396" text-anchor="middle">Phase 3</text></g>
+      <g><rect x="600" y="345" width="150" height="75" rx="6" fill="#0c1a2a" stroke="#264058" stroke-width="1.5" stroke-dasharray="5 4"/><text x="675" y="375" text-anchor="middle" fill="#8499AE" font-size="11.5" font-weight="700">Existing 2.35 MW</text><text x="675" y="391" text-anchor="middle" fill="#8499AE" font-size="9.5">PV array / interconnection</text></g>
+      <text x="400" y="445" text-anchor="middle" fill="#5d7790" font-size="11">Schematic, not to scale</text>
+    </svg>
+    <div class="phase-key">
+      <span class="pk"><i style="background:var(--amber)"></i> Phase 1, priority (O, P, A)</span>
+      <span class="pk"><i style="background:var(--blue)"></i> Phase 2 (B, C, D)</span>
+      <span class="pk"><i style="background:var(--green)"></i> Phase 3 (E, F, G, H, J)</span>
+      <span class="pk"><i style="background:#0c1a2a;border:1px dashed #264058"></i> Existing 2.35 MW array</span>
+    </div>
+    <div class="card" id="lotInfo" style="font-size:13.5px;color:var(--txt-2)">Select a lot to see its phase and rationale. <b style="color:var(--txt)">Lot O</b> leads because it is adjacent to the existing array and the established grid interconnection point, which minimizes trenching and study cost.</div>
+  </div>
+</section>
+
+<!-- 5. TIMELINE -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="eyebrow">Path to Operation</div>
+    <h2 class="title">Two-year registration timeline</h2>
+    <p class="lead" style="margin-bottom:24px">From board approval to Permission to Operate. The <b style="color:var(--red)">PG&amp;E Rule 21 interconnection study</b> is the critical path, gating every step downstream.</p>
+    <div class="tl"><div class="tl-track" id="tlTrack"></div></div>
+  </div>
+</section>
+
+<!-- 6. FINANCING -->
+<section id="financing">
+  <div class="wrap">
+    <div class="eyebrow">Capital Stack</div>
+    <h2 class="title">Financing breakdown</h2>
+    <p class="lead">How the $9.53M gross cost is funded. Debt service runs roughly $447k per year over 15 years on the CEC loan.</p>
+    <div class="fin-bar">
+      <div class="fin-seg" style="background:var(--blue);flex:6.2" title="CEC 1% ECAA loan">CEC Loan, $6.2M</div>
+      <div class="fin-seg" style="background:var(--green);flex:1.43" title="Federal ITC and grants">ITC, $1.43M</div>
+      <div class="fin-seg" style="background:var(--amber);flex:1.9" title="Out of pocket">Out of pocket, $1.9M</div>
+    </div>
+    <div class="fin-legend">
+      <div class="fl"><i style="background:var(--blue)"></i><div><b>$6.2M</b><span>CEC 1% ECAA loan. Low-interest state clean-energy financing, repaid via debt service.</span></div></div>
+      <div class="fl"><i style="background:var(--green)"></i><div><b>$1.43M</b><span>Federal ITC and grants. Investment Tax Credit and incentive offsets reduce gross cost.</span></div></div>
+      <div class="fl"><i style="background:var(--amber)"></i><div><b>$1.9M</b><span>District out of pocket. The real cash investment that payback is measured against.</span></div></div>
+      <div class="fl"><i style="background:var(--red)"></i><div><b>$447k/yr</b><span>Annual debt service on the CEC loan over a 15-year term.</span></div></div>
+    </div>
+    <div class="note" style="border-left-color:var(--amber)">Avoided cost is not cash. The roughly $900k per year in avoided utility cost reduces the college share of the district $6.0M annual utility budget, a real institutional saving, but not spendable revenue. Only grid exports and parking fees produce cash the college can redeploy toward EV charging and staffing.</div>
+  </div>
+</section>
+
+<!-- 7. CHALLENGES -->
+<section id="challenges">
+  <div class="wrap">
+    <div class="eyebrow">Risk Register</div>
+    <h2 class="title">Challenges and open questions</h2>
+    <p class="lead" style="margin-bottom:24px">A candid accounting of what could complicate or delay the project.</p>
+    <div class="ch-grid">
+      <div class="ch"><span class="tag">Grid</span><h4>PG&amp;E grid upgrade costs</h4><p>Interconnection-driven upgrades are unknown until the Rule 21 study completes, potentially a six-figure swing in net cost.</p></div>
+      <div class="ch"><span class="tag">Market</span><h4>NEM 3.0 low export rates</h4><p>Export compensation near 9 cents is far below the 43 cent retail rate, so on-site use and storage matter more than selling back.</p></div>
+      <div class="ch"><span class="tag">Operations</span><h4>CAISO scheduling complexity</h4><p>Operating as a registered DG facility adds market scheduling and metering obligations beyond a simple net-metered system.</p></div>
+      <div class="ch"><span class="tag">Labor</span><h4>Union negotiations</h4><p>New faculty and staff parking fees ($99 gas, $50 EV) require bargaining, a political and contractual hurdle, not just a billing change.</p></div>
+      <div class="ch"><span class="tag">Safety</span><h4>Battery fire code</h4><p>Adding storage triggers fire-code setbacks, ventilation, and inspection requirements that raise cost and siting complexity.</p></div>
+      <div class="ch"><span class="tag">Policy</span><h4>Federal funding instability</h4><p>ITC levels and federal incentives can shift with policy, so the $1.43M grant assumption carries real exposure.</p></div>
+      <div class="ch"><span class="tag">Governance</span><h4>Board turnover risk</h4><p>A two-year timeline spans election cycles, and changing board priorities could stall or defund the project mid-stream.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h5>Data Sources</h5>
+    <ol>
+      <li>PG&amp;E retail rate of $0.43/kWh: EnergySage, 2026.</li>
+      <li>District utility spend of $6.0M/yr: CLPCCD 2025-26 Adopted Budget.</li>
+      <li>Enrollment of 8,103 students: CollegeTuitionCompare.</li>
+      <li>NEM 3.0 export rate: SolarPermitSolutions, 2026.</li>
+      <li>Average peak sun hours (5.5/day): NREL regional irradiance, Livermore CA.</li>
+    </ol>
+    <div class="disclaimer">This is an illustrative civic proposal dashboard. All figures are planning estimates for discussion, and the interactive model is a simplified projection, not a financial guarantee. Final costs depend on the PG&amp;E interconnection study, competitive bids, and prevailing incentive programs.</div>
+  </div>
+</footer>
+
+<script>
+/* nav */
+const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+const navA=[...navLinks.querySelectorAll('a')];
+const spy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));});},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section').forEach(s=>spy.observe(s));
+
+/* counters */
+function animateCounters(){
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    const target=+el.dataset.count,dec=+el.dataset.dec||0,pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';
+    let start=null,dur=1300;
+    function step(t){
+      if(!start)start=t;const p=Math.min((t-start)/dur,1);const e=1-Math.pow(1-p,3);
+      el.textContent=pre+(target*e).toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec})+suf;
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+}
+const heroObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){animateCounters();heroObs.disconnect();}});},{threshold:.3});
+heroObs.observe(document.getElementById('overview'));
+
+/* financial model */
+const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
+const fmtM=n=>'$'+(n/1e6).toFixed(2)+'M';
+const ASSUME={
+  sunHrs:5.5, perfRatio:0.80, evShare:0.18, permitHolders:5200,
+  ftesCost:95000, opsPerKw:18, outOfPocket:1.9e6, debtService:447000, selfConsume:0.55
+};
+const ids=['kw','cpw','grant','fte','gas','ev','exp','ret'];
+const el=id=>document.getElementById(id);
+function setSlider(id){const e=el(id);e.style.setProperty('--p',(e.value-e.min)/(e.max-e.min)*100+'%');}
+function calc(){
+  const v={kw:+kw.value,cpw:+cpw.value,grant:+grant.value,fte:+fte.value,gas:+gas.value,ev:+ev.value,exp:+exp.value,ret:+ret.value};
+  lblKw.textContent=v.kw.toLocaleString()+' kW';
+  lblCpw.textContent='$'+v.cpw.toFixed(2);
+  lblGrant.textContent=v.grant+'%';
+  lblFte.textContent=v.fte;
+  lblGas.textContent='$'+v.gas;
+  lblEv.textContent='$'+v.ev;
+  lblExp.textContent=v.exp+'¢';
+  lblRet.textContent=v.ret+'¢';
+  ids.forEach(setSlider);
+
+  const gross=v.kw*1000*v.cpw;
+  const net=gross*(1-v.grant/100);
+  const kWh=v.kw*ASSUME.sunHrs*365*ASSUME.perfRatio;
+  const exported=kWh*(1-ASSUME.selfConsume);
+  const selfUse=kWh*ASSUME.selfConsume;
+  const exportRev=exported*(v.exp/100);
+  const parkingRev=ASSUME.permitHolders*(1-ASSUME.evShare)*v.gas+ASSUME.permitHolders*ASSUME.evShare*v.ev;
+  const cashRev=exportRev+parkingRev;
+  const avoided=selfUse*(v.ret/100);
+  const ops=v.kw*ASSUME.opsPerKw;
+  const staff=v.fte*ASSUME.ftesCost;
+  const netCash=cashRev-ops-staff-ASSUME.debtService;
+  const payback=netCash>0?ASSUME.outOfPocket/netCash:null;
+
+  oGross.textContent=fmtM(gross);
+  oGrossSub.textContent='$'+v.cpw.toFixed(2)+'/W on '+v.kw.toLocaleString()+' kW';
+  oNet.textContent=fmtM(net);
+  oNetSub.textContent=v.grant+'% covered by grants';
+  oCash.textContent=fmt(cashRev)+'/yr';
+  oAvoid.textContent=fmt(avoided)+'/yr';
+  oNetCash.textContent=(netCash>=0?'+':'−')+fmt(Math.abs(netCash))+'/yr';
+  netCashTile.className='tile '+(netCash>=0?'pos':'neg');
+  oNetCashSub.textContent='after $'+Math.round(ops/1000)+'k ops, $'+Math.round(staff/1000)+'k staff, $447k debt';
+  oPayback.textContent=payback?payback.toFixed(1)+' yrs':'over term';
+}
+ids.forEach(id=>el(id).addEventListener('input',calc));
+calc();
+
+/* simulation */
+const MONTHS=[
+  {m:'Jan',sun:4.8,uv:3,enroll:7400,tou:.96,note:'Spring term opens with low sun and short days. Generation sits near the annual floor, with cool-weather panel efficiency helping slightly.'},
+  {m:'Feb',sun:5.4,uv:4,enroll:7400,tou:.95,note:'Days lengthen and spring enrollment holds near 7,400. Export revenue climbs off the winter low.'},
+  {m:'Mar',sun:6.2,uv:6,enroll:7400,tou:.98,note:'Strong spring production. The equinox brings balanced daylight and a rising UV index across Livermore.'},
+  {m:'Apr',sun:7.0,uv:8,enroll:7400,tou:1.0,note:'High generation against mild campus loads makes this an excellent export month as sun hours approach summer levels.'},
+  {m:'May',sun:7.5,uv:9,enroll:6800,tou:1.05,note:'Near-peak sun. The spring term winds down and enrollment tapers toward the summer session.'},
+  {m:'Jun',sun:7.7,uv:10,enroll:1600,tou:1.18,note:'Summer session drops enrollment to about 1,600. Peak time-of-use rates lift the value of every exported kWh.'},
+  {m:'Jul',sun:7.8,uv:10,enroll:1600,tou:1.20,note:'Annual generation peak at 7.8 peak sun hours per day. The highest summer TOU pricing maximizes export revenue.'},
+  {m:'Aug',sun:7.3,uv:9,enroll:1600,tou:1.15,note:'Still excellent production. The summer session continues and low campus loads boost net export.'},
+  {m:'Sep',sun:6.4,uv:7,enroll:8100,tou:1.08,note:'Fall registration. Annual parking permits ($99 gas, $50 EV) are billed as a lump sum, producing the largest cash inflow of the year. Enrollment peaks near 8,100.'},
+  {m:'Oct',sun:5.8,uv:5,enroll:8100,tou:1.0,note:'Fall term in full swing at peak enrollment. Sun hours decline but TOU pricing normalizes after summer.'},
+  {m:'Nov',sun:4.9,uv:3,enroll:8100,tou:.97,note:'Production falls toward the winter low. Peak campus occupancy keeps self-consumption high.'},
+  {m:'Dec',sun:4.6,uv:2,enroll:8100,tou:.95,note:'Annual generation floor at 4.6 peak sun hours per day. The shortest days put export revenue at its minimum.'}
+];
+function monthData(){
+  const kw=2000,exp=9,gas=99,ev=50,permit=ASSUME.permitHolders,evShare=ASSUME.evShare;
+  return MONTHS.map((M,i)=>{
+    const kWh=kw*M.sun*30.4*ASSUME.perfRatio;
+    const exportRev=kWh*(1-ASSUME.selfConsume)*(exp/100)*M.tou;
+    const annualGas=permit*(1-evShare)*gas, annualEv=permit*evShare*ev;
+    let parkGas,parkEv;
+    if(i===8){parkGas=annualGas*0.80;parkEv=annualEv*0.80;}
+    else{parkGas=annualGas*0.20/11;parkEv=annualEv*0.20/11;}
+    const cash=exportRev+parkGas+parkEv;
+    const net=cash-(kw*ASSUME.opsPerKw/12)-ASSUME.debtService/12;
+    return{...M,exportRev,parkGas,parkEv,cash,net};
+  });
+}
+const MD=monthData(),maxCash=Math.max(...MD.map(d=>d.cash)),chart=document.getElementById('chart');
+MD.forEach((d,i)=>{
+  const col=document.createElement('div');col.className='barcol';col.dataset.i=i;
+  const h=Math.max((d.cash/maxCash)*230,1);
+  col.innerHTML='<div class="net">'+(d.net>=0?'+':'−')+'$'+Math.round(Math.abs(d.net)/1000)+'k</div>'+
+    '<div class="bar-stack" style="height:'+h+'px">'+
+    '<div class="seg export" style="height:'+(d.exportRev/d.cash*100)+'%"></div>'+
+    '<div class="seg gas" style="height:'+(d.parkGas/d.cash*100)+'%"></div>'+
+    '<div class="seg ev" style="height:'+(d.parkEv/d.cash*100)+'%"></div></div>'+
+    '<div class="mo">'+d.m+'</div>';
+  col.addEventListener('click',()=>showMonth(i));
+  chart.appendChild(col);
+});
+function showMonth(i){
+  const d=MD[i];
+  document.querySelectorAll('.barcol').forEach(c=>c.classList.toggle('active',+c.dataset.i===i));
+  document.getElementById('moDetail').innerHTML=
+    '<h4>'+d.m+(d.m==='Sep'?', fall registration peak':'')+'</h4>'+
+    '<p>'+d.note+'</p>'+
+    '<div class="dgrid">'+
+    '<div><b>'+d.sun+'</b><span>peak sun hrs/day</span></div>'+
+    '<div><b>'+d.uv+'</b><span>UV index</span></div>'+
+    '<div><b>'+d.enroll.toLocaleString()+'</b><span>students enrolled</span></div>'+
+    '<div><b>'+d.tou.toFixed(2)+'x</b><span>TOU rate factor</span></div>'+
+    '<div><b style="color:var(--blue)">$'+Math.round(d.exportRev).toLocaleString()+'</b><span>grid export</span></div>'+
+    '<div><b style="color:var(--amber)">$'+Math.round(d.parkGas+d.parkEv).toLocaleString()+'</b><span>parking cash</span></div>'+
+    '<div><b style="color:var(--green)">$'+Math.round(d.cash).toLocaleString()+'</b><span>total cash</span></div>'+
+    '<div><b style="color:'+(d.net>=0?'var(--green)':'var(--red)')+'">'+(d.net>=0?'+':'−')+'$'+Math.round(Math.abs(d.net)).toLocaleString()+'</b><span>monthly net</span></div>'+
+    '</div>';
+}
+
+/* map */
+const LOTS={
+  O:['Phase 1','Adjacent to the existing 2.35 MW array and grid interconnection, the lowest trenching cost and the fastest route to first power.'],
+  P:['Phase 1','Large contiguous lot near the interconnection point, with high panel yield and minimal civil work.'],
+  A:['Phase 1','Priority lot with high daytime occupancy, which maximizes on-site self-consumption.'],
+  B:['Phase 2','Mid-campus lot, added once Phase 1 interconnection is validated.'],
+  C:['Phase 2','Pairs with Lot B for an efficient second construction mobilization.'],
+  D:['Phase 2','Northern lot with good solar exposure, sequenced to balance feeder loading.'],
+  E:['Phase 3','Build-out phase, once revenue from earlier phases is established.'],
+  F:['Phase 3','Far-east lot, where longer conductor runs make it a later phase.'],
+  G:['Phase 3','West campus, deferred to Phase 3 pending interconnection capacity.'],
+  H:['Phase 3','Smaller west lot, grouped into the final construction phase.'],
+  J:['Phase 3','Furthest lot from interconnection, the last to be energized.']
+};
+document.querySelectorAll('.lot').forEach(g=>{
+  g.addEventListener('click',()=>{
+    const id=g.dataset.lot,[ph,desc]=LOTS[id];
+    const color=ph==='Phase 1'?'var(--amber)':ph==='Phase 2'?'var(--blue)':'var(--green)';
+    document.getElementById('lotInfo').innerHTML='<b style="color:'+color+';font-size:15px">Lot '+id+', '+ph+'</b><div style="margin-top:6px;color:var(--txt-2)">'+desc+'</div>';
+  });
+});
+
+/* timeline */
+const STEPS=[
+  ['Board approval','Trustee vote to authorize the project.','$0','Month 0',false],
+  ['Hire PE engineer','Retain a licensed professional engineer for design.','$80k to $150k','1 to 2 mo',false],
+  ['Rule 21 study','PG&E interconnection study.','$50k to $250k','6 to 12 mo',true],
+  ['CEQA filing','State environmental review.','$40k to $120k','3 to 6 mo',false],
+  ['Livermore permits','City building and electrical permits.','$30k to $90k','2 to 4 mo',false],
+  ['CAISO registration','Register as a distributed generation facility.','$20k to $60k','2 to 4 mo',false],
+  ['Construction','Carport canopies and electrical work.','$7M to $8M','4 to 8 mo',false],
+  ['Permission to Operate','PG&E PTO and go-live.','$0','1 to 2 mo',false]
+];
+const tl=document.getElementById('tlTrack');
+STEPS.forEach((s,i)=>{
+  const d=document.createElement('div');
+  d.className='tl-step'+(s[4]?' crit':'');
+  d.innerHTML='<div class="tl-node">'+(i+1)+'</div>'+
+    '<div class="tl-card'+(s[4]?' crit':'')+'">'+
+    '<h4>'+s[0]+'</h4>'+
+    '<div class="dur">'+s[3]+'</div>'+
+    '<div class="desc">'+s[1]+'</div>'+
+    '<div class="cost">'+s[2]+'</div>'+
+    (s[4]?'<span class="crit-tag">Critical path</span>':'')+
+    '</div>';
+  tl.appendChild(d);
+});
+</script>
+</body>
+</html>
