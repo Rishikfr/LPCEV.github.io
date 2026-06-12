@@ -9,20 +9,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#0D1B2A;
-    --bg-2:#102338;
-    --panel:#13263b;
-    --panel-2:#17304a;
-    --line:#264058;
-    --line-soft:#1d3347;
-    --txt:#E6EDF5;
-    --txt-2:#C2D0DF;
-    --muted:#8499AE;
-    --amber:#F5A623;
-    --green:#1D9E75;
-    --blue:#378ADD;
-    --yellow:#E7C24B;
-    --red:#E24B4A;
+    --bg:#F0FFF4;
+    --bg-2:#FFFFFF;
+    --panel:#FFFFFF;
+    --panel-2:#F2FFF5;
+    --line:#BBF7D0;
+    --line-soft:#D1FAE5;
+    --txt:#1A2E1E;
+    --txt-2:#3A5940;
+    --muted:#5A8265;
+    --amber:#16A34A;
+    --green:#059669;
+    --blue:#0284C7;
+    --yellow:#CA8A04;
+    --red:#DC2626;
     --radius:10px;
   }
   *{box-sizing:border-box}
@@ -41,12 +41,12 @@
   /* NAV */
   header.nav{
     position:sticky;top:0;z-index:50;
-    background:rgba(13,27,42,.9);backdrop-filter:blur(10px);
+    background:rgba(240,255,244,.95);backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line-soft);
   }
   .nav-inner{display:flex;align-items:center;gap:12px;height:60px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14.5px;white-space:nowrap;letter-spacing:-.01em}
-  .brand .mark{width:30px;height:30px;border-radius:7px;background:var(--amber);color:#0D1B2A;display:grid;place-items:center;font-size:11px;font-weight:800;letter-spacing:.02em}
+  .brand .mark{width:30px;height:30px;border-radius:7px;background:var(--amber);color:#071B0D;display:grid;place-items:center;font-size:11px;font-weight:800;letter-spacing:.02em}
   .nav-links{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
   .nav-links::-webkit-scrollbar{display:none}
   .nav-links a{
@@ -88,11 +88,23 @@
   .controls label .val{color:var(--txt);font-weight:700;font-size:13.5px;font-variant-numeric:tabular-nums}
   input[type=range]{
     -webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;
-    background:linear-gradient(90deg,var(--amber) var(--p,40%),#22384e var(--p,40%));outline:none;margin:0;
+    background:linear-gradient(90deg,var(--amber) var(--p,40%),#D1FAE5 var(--p,40%));outline:none;margin:0;
   }
-  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--amber);border:2px solid #0D1B2A;cursor:pointer}
-  input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--amber);border:2px solid #0D1B2A;cursor:pointer}
-  .ctrl-head{font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line-soft)}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--amber);border:2px solid #F0FFF4;cursor:pointer}
+  input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--amber);border:2px solid #F0FFF4;cursor:pointer}
+  .ctrl-head{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line-soft)}
+  .reset-btn{font-family:inherit;font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:5px 10px;cursor:pointer;transition:color .12s,border-color .12s}
+  .reset-btn:hover{color:var(--amber);border-color:var(--amber)}
+  .local-banner{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(135deg,#ECFDF5 0%,#F0FFF4 100%);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:var(--radius);padding:14px 16px;margin-bottom:22px}
+  .local-badge{flex-shrink:0;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--green);padding:5px 9px;border-radius:5px;line-height:1.3}
+  .local-banner p{margin:0;font-size:13.5px;color:var(--txt-2);line-height:1.55}
+  .local-banner b{color:var(--txt)}
+  .local-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .local-chip{font-size:11px;font-weight:600;color:var(--txt-2);background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:4px 9px}
+  .local-chip b{color:var(--green);font-weight:700}
+  .controls .local-src{display:block;font-size:10.5px;color:var(--green);font-weight:600;margin-top:5px}
+  .baseline.local-ref{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+  .baseline.local-ref .bl-head{color:var(--green)}
   .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
   .tile{background:var(--panel);padding:16px}
   .tile .t-lbl{color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
@@ -112,18 +124,36 @@
   .bl span{font-size:12px;color:var(--muted);display:block;margin-top:3px}
   .bl em{font-style:normal;font-size:10.5px;color:var(--muted);opacity:.75;display:block;margin-top:5px}
 
+  /* PLAN BREAKDOWN */
+  .plan-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:22px}
+  .plan-step{background:var(--panel);padding:22px 20px;display:flex;flex-direction:column}
+  .plan-step .step-num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--amber);color:#071B0D;font-size:12px;font-weight:800;margin-bottom:12px;flex-shrink:0}
+  .plan-step h4{font-size:15px;margin-bottom:8px;font-weight:600}
+  .plan-step p{font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.5;flex:1}
+  .plan-step .step-meta{font-size:11.5px;color:var(--txt-2);line-height:1.5;padding-top:12px;border-top:1px solid var(--line-soft)}
+  .plan-step .step-meta b{color:var(--txt)}
+  .plan-step a.step-link{display:inline-block;margin-top:10px;font-size:12px;font-weight:600;color:var(--blue)}
+  .plan-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .plan-sum{background:var(--panel-2);padding:16px 18px}
+  .plan-sum b{display:block;font-size:clamp(17px,2.2vw,20px);font-weight:700;font-variant-numeric:tabular-nums;margin-bottom:4px}
+  .plan-sum span{font-size:12px;color:var(--muted);line-height:1.4}
+
   /* SIM CHART */
   .legend{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 16px;font-size:12.5px;color:var(--muted)}
   .legend span{display:flex;align-items:center;gap:7px}
   .legend i{width:11px;height:11px;border-radius:2px;display:inline-block}
   .chart-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .chart{display:flex;gap:8px;align-items:flex-end;min-height:290px;min-width:660px;padding:8px 4px 0}
-  .barcol{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;min-width:44px}
+  .chart-hint{display:none;margin:12px 0 0;font-size:12.5px;color:var(--muted);text-align:center;line-height:1.45}
+  .barcol{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;min-width:44px;-webkit-tap-highlight-color:transparent}
   .bar-stack{width:100%;max-width:42px;display:flex;flex-direction:column-reverse;border-radius:3px 3px 0 0;overflow:hidden;transition:opacity .15s;opacity:.92}
   .barcol:hover .bar-stack,.barcol.active .bar-stack{opacity:1}
   .barcol.active .bar-stack{outline:2px solid var(--amber);outline-offset:2px}
   .seg{width:100%}
-  .seg.export{background:var(--blue)} .seg.gas{background:var(--amber)} .seg.ev{background:var(--yellow)}
+  .seg.export{background:var(--blue)} .seg.gas{background:var(--red)} .seg.ev{background:var(--yellow)} .seg.avoid{background:var(--green)}
+  .sim-opts{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+  .avoid-toggle{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--txt-2);cursor:pointer;user-select:none}
+  .avoid-toggle input{width:15px;height:15px;accent-color:var(--amber);cursor:pointer}
   .barcol .net{font-size:11px;color:var(--txt-2);font-weight:600;font-variant-numeric:tabular-nums}
   .barcol .mo{font-size:12.5px;color:var(--muted);font-weight:500}
   .barcol.active .mo{color:var(--txt);font-weight:600}
@@ -140,31 +170,45 @@
   .lot{cursor:pointer}
   .lot rect.fill{transition:fill-opacity .15s}
   .lot:hover rect.fill{fill-opacity:1}
-  .lot-label{font-weight:800;fill:#0D1B2A;font-size:16px;font-family:'Inter'}
-  .lot-sub{fill:#0D1B2A;fill-opacity:.7;font-size:9px;font-weight:600;font-family:'Inter'}
+  .lot-label{font-weight:800;fill:#071B0D;font-size:16px;font-family:'Inter'}
+  .lot-sub{fill:#071B0D;fill-opacity:.7;font-size:9px;font-weight:600;font-family:'Inter'}
   .phase-key{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
   .pk{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:500;border:1px solid var(--line);background:var(--panel);padding:7px 12px;border-radius:6px;color:var(--txt-2)}
   .pk i{width:12px;height:12px;border-radius:3px}
 
   /* TIMELINE */
-  .tl{overflow-x:auto;padding-bottom:10px}
-  .tl-track{display:flex;min-width:820px}
-  .tl-step{flex:1;min-width:135px;position:relative;padding:0 8px}
-  .tl-step::before{content:"";position:absolute;top:12px;left:0;right:0;height:2px;background:var(--line)}
+  .tl-wrap{padding:22px 22px 10px;background:linear-gradient(180deg,var(--panel-2) 0%,var(--panel) 100%);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 28px rgba(22,163,74,.06)}
+  .tl-head{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .tl-pill{font-size:11px;font-weight:600;letter-spacing:.03em;color:var(--txt-2);background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:6px 13px}
+  .tl-pill.crit{color:var(--red);border-color:rgba(220,38,38,.3);background:#FEF2F2}
+  .tl-pill.goal{color:var(--green);border-color:rgba(5,150,105,.3);background:#ECFDF5}
+  .tl{overflow-x:auto;padding-bottom:18px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+  .tl-track{display:flex;min-width:920px;padding:6px 0 10px;position:relative}
+  .tl-step{flex:1;min-width:148px;position:relative;padding:0 5px;opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .tl-step.vis{opacity:1;transform:none}
+  .tl-step::before{content:"";position:absolute;top:20px;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--line),var(--amber));z-index:0}
+  .tl-step:last-child::before{background:linear-gradient(90deg,var(--amber),var(--green))}
   .tl-step:first-child::before{left:50%}
   .tl-step:last-child::before{right:50%}
-  .tl-node{position:relative;width:24px;height:24px;border-radius:50%;background:var(--panel);border:2px solid var(--amber);margin:0 auto 14px;display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--amber);z-index:2}
-  .tl-step.crit .tl-node{border-color:var(--red);color:var(--red)}
-  .tl-card h4{font-size:13.5px;margin-bottom:6px;min-height:36px;font-weight:600;line-height:1.25}
-  .tl-card .dur{font-size:11.5px;color:var(--amber);font-weight:600}
-  .tl-card.crit .dur{color:var(--red)}
-  .tl-card .desc{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.4}
-  .tl-card .cost{font-size:11.5px;color:var(--txt-2);font-weight:600;margin-top:6px;font-variant-numeric:tabular-nums}
-  .crit-tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;color:var(--red);border:1px solid var(--red);border-radius:4px;padding:1px 5px;margin-top:6px;text-transform:uppercase}
+  .tl-node{position:relative;width:40px;height:40px;border-radius:50%;background:var(--panel);border:3px solid var(--amber);margin:0 auto 16px;display:grid;place-items:center;font-size:12px;font-weight:800;color:var(--amber);z-index:2;box-shadow:0 2px 10px rgba(22,163,74,.14);transition:transform .18s,box-shadow .18s}
+  .tl-step:hover .tl-node{transform:scale(1.07);box-shadow:0 4px 16px rgba(22,163,74,.22)}
+  .tl-step.crit .tl-node{border-color:var(--red);color:#fff;background:var(--red);box-shadow:0 3px 14px rgba(220,38,38,.28)}
+  .tl-step.last .tl-node{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 3px 14px rgba(5,150,105,.28)}
+  .tl-card{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:14px 12px;transition:border-color .18s,box-shadow .18s,transform .18s}
+  .tl-step:hover .tl-card{border-color:rgba(22,163,74,.45);box-shadow:0 6px 20px rgba(22,163,74,.09);transform:translateY(-2px)}
+  .tl-step.crit .tl-card{border-color:rgba(220,38,38,.35);background:linear-gradient(180deg,#FFF8F8 0%,var(--panel) 100%)}
+  .tl-step.last .tl-card{border-color:rgba(5,150,105,.4);background:linear-gradient(180deg,#F0FFF8 0%,var(--panel) 100%)}
+  .tl-card h4{font-size:13.5px;margin-bottom:8px;min-height:36px;font-weight:700;line-height:1.25;color:var(--txt)}
+  .tl-card .dur{display:inline-block;font-size:10.5px;color:var(--amber);font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:rgba(22,163,74,.1);border-radius:4px;padding:3px 8px;margin-bottom:8px}
+  .tl-card.crit .dur{color:var(--red);background:rgba(220,38,38,.1)}
+  .tl-card.last .dur{color:var(--green);background:rgba(5,150,105,.12)}
+  .tl-card .desc{font-size:11.5px;color:var(--muted);margin-top:0;line-height:1.45}
+  .tl-card .cost{font-size:12px;color:var(--txt);font-weight:700;margin-top:8px;padding-top:8px;border-top:1px solid var(--line-soft);font-variant-numeric:tabular-nums}
+  .crit-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.07em;color:#fff;background:var(--red);border-radius:4px;padding:3px 7px;margin-top:8px;text-transform:uppercase}
 
   /* FINANCING */
   .fin-bar{display:flex;height:46px;border-radius:8px;overflow:hidden;border:1px solid var(--line);margin:20px 0}
-  .fin-seg{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#0D1B2A;min-width:0;padding:0 6px;text-align:center}
+  .fin-seg{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#071B0D;min-width:0;padding:0 6px;text-align:center}
   .fin-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
   .fl{display:flex;gap:12px;align-items:flex-start;background:var(--panel);padding:16px}
   .fl i{width:11px;height:11px;border-radius:3px;margin-top:5px;flex-shrink:0}
@@ -188,14 +232,50 @@
     .fin{grid-template-columns:1fr}
     .tiles{grid-template-columns:repeat(2,1fr)}
     .bl-grid{grid-template-columns:repeat(2,1fr)}
-    section{padding:52px 0}
+    .plan-flow{grid-template-columns:repeat(2,1fr)}
+    .plan-summary{grid-template-columns:repeat(2,1fr)}
+    section{padding:48px 0}
     .nav-links{display:none}
     .menu-btn{display:grid;place-items:center;margin-left:auto;width:38px;height:38px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--txt);font-size:17px;cursor:pointer}
-    .nav-links.open{display:flex;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:rgba(13,27,42,.98);border-bottom:1px solid var(--line);padding:8px 16px 14px;overflow-x:hidden}
+    .nav-links.open{display:flex;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:rgba(240,255,244,.98);border-bottom:1px solid var(--line);padding:8px 16px 14px;overflow-x:hidden}
     .nav-links.open a{padding:11px 12px}
+    /* timeline flips to vertical */
+    .tl-wrap{padding:18px 16px 6px}
+    .tl{overflow-x:visible;padding-bottom:0}
+    .tl-track{flex-direction:column;min-width:0;padding:0}
+    .tl-step{display:flex;gap:14px;align-items:flex-start;padding:0;min-width:0;flex:none}
+    .tl-step::before{left:19px;top:40px;right:auto;width:3px;height:auto;bottom:0;background:linear-gradient(180deg,var(--amber),var(--green))}
+    .tl-step:first-child::before{top:40px}
+    .tl-step:last-child::before{display:none}
+    .tl-node{margin:0;flex-shrink:0;width:40px;height:40px}
+    .tl-card{flex:1;margin-bottom:4px}
+    .tl-card h4{min-height:0}
+    .chart-wrap{overflow-x:visible}
+    .chart{min-width:0;width:100%;gap:5px;min-height:210px;padding:4px 0 0}
+    .barcol{min-width:0;gap:5px}
+    .bar-stack{max-width:none}
+    .barcol .net{font-size:9px;white-space:nowrap}
+    .barcol .mo{font-size:11px}
+    .chart-hint{display:block}
+    #sim .card{padding:12px 8px}
   }
   @media(max-width:480px){
-    .tiles,.bl-grid{grid-template-columns:1fr 1fr}
+    .tiles{grid-template-columns:1fr 1fr}
+    .bl-grid{grid-template-columns:1fr 1fr}
+    /* last bl item alone on a row spans full width — fixes 3-item orphan */
+    .bl:last-child:nth-child(odd){grid-column:1/-1}
+    section{padding:36px 0}
+    .hero{padding-top:36px;padding-bottom:36px}
+    .hero p.lead{font-size:15px}
+    .meta-row{gap:6px}
+    .bl{padding:11px 12px}
+    .chart{gap:3px;min-height:175px}
+    .barcol .net{font-size:8px}
+    .barcol .mo{font-size:10px}
+    .sim-opts{flex-direction:column;align-items:flex-start}
+    .legend{gap:10px;font-size:11.5px}
+    .plan-flow{grid-template-columns:1fr}
+    .plan-summary{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -208,6 +288,7 @@
     <nav class="nav-links" id="navLinks">
       <a href="#overview">Overview</a>
       <a href="#problem">The Problem</a>
+      <a href="#plan">Plan Breakdown</a>
       <a href="#model">Financial Model</a>
       <a href="#sim">Simulation</a>
       <a href="#map">Site Plan</a>
@@ -224,18 +305,81 @@
   <div class="wrap">
     <div class="eyebrow">Team Transportation Transformers <b>&middot;</b> Las Positas College <b>&middot;</b> Livermore, CA</div>
     <h1>Turn the campus into a <span class="accent">solar power plant</span> that funds clean transportation.</h1>
-    <p class="lead">Transportation is the single largest source of Las Positas' carbon emissions. The plan: roughly double our solar to about <b>4.35 MW</b> by adding carport canopies over the parking lots, free up the <b>~$1M/year</b> we pay PG&amp;E, and reinvest that money into free EV charging, better transit, and dividends that reward going electric.</p>
+    <p class="lead">Transportation is the single largest source of Las Positas' carbon emissions. The plan: roughly double our solar to about <b>4.35 MW</b> by adding carport canopies over the parking lots, free up the <b>~$1M/year</b> we pay PG&amp;E, and reinvest the profit into <b>free EV charging</b> and grants that help students and staff buy a new electric vehicle.</p>
     <div class="meta-row">
       <span class="chip"><b>+2 MW</b> new carport solar</span>
       <span class="chip"><b>Net-Zero</b> energy by 2035</span>
-      <span class="chip"><b>1% CEC</b> loan financing</span>
+      <span class="chip"><b>1% CEC</b> loan · $3M max</span>
       <span class="chip"><b>Funds</b> the EV transition</span>
     </div>
     <div class="stat-grid">
-      <div class="stat red"><div class="num" data-count="13239" data-suffix=" t" data-dec="0">0</div><div class="lbl">Tons of CO2 emitted (2018)</div></div>
-      <div class="stat amber"><div class="num" data-count="73" data-suffix="%" data-dec="0">0</div><div class="lbl">From student commuting</div></div>
+      <div class="stat red"><div class="num" data-count="13239" data-suffix=" MT" data-dec="0">0</div><div class="lbl">Metric tons of CO2 emitted (2018)</div></div>
+      <div class="stat amber"><div class="num" data-count="83" data-suffix="%" data-dec="0">0</div><div class="lbl">From student &amp; staff commuting</div></div>
       <div class="stat blue"><div class="num" data-count="4.35" data-suffix=" MW" data-dec="2">0</div><div class="lbl">Planned solar capacity</div></div>
-      <div class="stat green"><div class="num" data-count="1" data-prefix="$" data-suffix="M/yr" data-dec="0">$0</div><div class="lbl">PG&amp;E cost freed up</div></div>
+      <div class="stat green"><div class="num" data-count="1.36" data-prefix="$" data-suffix="M/yr" data-dec="2">$0</div><div class="lbl">Avoided cost + annual revenue</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 1b. THE PROBLEM -->
+<section id="problem">
+  <div class="wrap">
+    <div class="eyebrow">Why This Matters</div>
+    <h2 class="title">Transportation is our biggest source of pollution</h2>
+    <p class="lead" style="margin-bottom:26px">In 2018 Las Positas emitted <b>13,239 metric tons of CO2</b>, roughly the volume of 34 Olympic swimming pools. Most of it never came from the buildings. It came from the drive to campus.</p>
+    <div class="bl-grid" style="margin-bottom:18px">
+      <div class="bl"><b style="color:var(--amber)">73%</b><span>From student commuting</span><em>LPC Climate Action Plan, 2018 inventory</em></div>
+      <div class="bl"><b style="color:var(--blue)">10%</b><span>From faculty &amp; staff commuting</span><em>The rest is energy &amp; operations</em></div>
+      <div class="bl"><b style="color:var(--green)">2.35 MW</b><span>Solar already on campus</span><em>Operational ground array</em></div>
+    </div>
+    <div class="ch-grid">
+      <div class="ch" style="border-top-color:var(--amber)"><span class="tag">Field research</span><h4>Everyone drives alone</h4><p>Every person we interviewed commuted solo. One drives roughly 200 miles a day, four days a week. Switching from gas to a hybrid cut one driver's fuel from $80/day to $55/week.</p></div>
+      <div class="ch" style="border-top-color:var(--blue)"><span class="tag">Field research</span><h4>Real resistance to EVs</h4><p>Drivers see full EVs as too expensive and worry about range. Prices never fell as predicted. The barrier is buy-in and cost, not willingness.</p></div>
+      <div class="ch" style="border-top-color:var(--red)"><span class="tag">Campus walk</span><h4>The campus runs hot</h4><p>Many uncomfortable hot spots, and the new amphitheater is bare concrete with no shade for seating. Too many ornamental crape myrtles where fast-growing native Valley Oaks would cool the campus.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 1c. PLAN BREAKDOWN -->
+<section id="plan">
+  <div class="wrap">
+    <div class="eyebrow">Plan Breakdown</div>
+    <h2 class="title">Four steps from parking lots to clean transportation</h2>
+    <p class="lead" style="margin-bottom:26px">The proposal is a closed loop: build solar on the lots we already use, stop paying PG&amp;E, and put the savings back into the commute that causes most of our emissions.</p>
+    <div class="plan-flow">
+      <div class="plan-step">
+        <span class="step-num">1</span>
+        <h4>Build carport solar</h4>
+        <p>Add roughly <b>2 MW</b> of solar canopies across <b>11 parking lots</b> in three construction phases, bringing total campus capacity to about <b>4.35 MW</b>. Lot O leads Phase 1 because it sits next to the existing 2.35 MW array and grid tie-in.</p>
+        <div class="step-meta"><b>~$6.2M</b> gross capex &middot; <b>2 yr</b> to Permission to Operate</div>
+        <a class="step-link" href="#map">See site plan &rarr;</a>
+      </div>
+      <div class="plan-step">
+        <span class="step-num">2</span>
+        <h4>Finance the build</h4>
+        <p>Stack federal ITC (~30%), a <b>1% CEC loan capped at $3M</b>, and district tools: bonds, parcel tax, state grants, and supplemental loans. Debt service stays far below the utility bill the project replaces.</p>
+        <div class="step-meta"><b>~$1.9M</b> ITC &middot; <b>up to $3M</b> CEC loan &middot; bonds &amp; grants fill the gap</div>
+        <a class="step-link" href="#financing">See capital stack &rarr;</a>
+      </div>
+      <div class="plan-step">
+        <span class="step-num">3</span>
+        <h4>Offset PG&amp;E &amp; generate surplus</h4>
+        <p>Self-use at the <b>43&cent; retail rate</b> is the engine, not grid export at 9&cent;. Avoiding the campus electricity bill frees roughly <b>$1M/year</b>, with parking revenue collected each fall at registration.</p>
+        <div class="step-meta"><b>~$1M/yr</b> avoided cost &middot; cash-positive from year one</div>
+        <a class="step-link" href="#model">Run the financial model &rarr;</a>
+      </div>
+      <div class="plan-step">
+        <span class="step-num">4</span>
+        <h4>Reinvest in clean commuting</h4>
+        <p>Annual profit funds <b>free EV charging</b> across the lots and a <b>campus grant program</b> students and staff apply to for help buying a new EV. Heavier fees on gas vehicles help pay for the transition.</p>
+        <div class="step-meta"><b>Priority:</b> charging &amp; EV grants, then transit, shade &amp; staff</div>
+        <a class="step-link" href="#payoff">See where the money goes &rarr;</a>
+      </div>
+    </div>
+    <div class="plan-summary">
+      <div class="plan-sum"><b style="color:var(--amber)">4.35 MW</b><span>Total solar capacity (2.35 MW existing + ~2 MW new)</span></div>
+      <div class="plan-sum"><b style="color:var(--green)">~$1M/yr</b><span>PG&amp;E bill replaced by on-site generation</span></div>
+      <div class="plan-sum"><b style="color:var(--blue)">83%</b><span>Of campus CO2 from commuting we're targeting</span></div>
     </div>
   </div>
 </section>
@@ -245,39 +389,51 @@
   <div class="wrap">
     <div class="eyebrow">Interactive Financial Model</div>
     <h2 class="title">Project economics</h2>
-    <p class="lead" style="margin-bottom:26px">Defaults are set to current Livermore and Las Positas regional averages (listed below). Adjust any assumption to see the economics recalculate. All math runs locally in the browser.</p>
+    <p class="lead" style="margin-bottom:20px">The real engine is the <b>~$1M/year PG&amp;E bill we stop paying</b>, which comfortably services a 1% CEC loan and still leaves a surplus to reinvest. Adjust any assumption to see the economics recalculate, live in your browser.</p>
+    <div class="local-banner">
+      <span class="local-badge">Local defaults</span>
+      <div>
+        <p>Every slider opens on <b>verified Livermore &amp; Las Positas rates</b>, not national averages: PG&amp;E retail at 43&cent;/kWh, NEM 3.0 export at 9&cent;/kWh, LPC parking fees, and NREL sun data for this zip code.</p>
+        <div class="local-chips">
+          <span class="local-chip"><b>43&cent;</b> PG&amp;E retail</span>
+          <span class="local-chip"><b>9&cent;</b> NEM 3.0 export</span>
+          <span class="local-chip"><b>$99 / $50</b> LPC permits</span>
+          <span class="local-chip"><b>5.5 hrs</b> Livermore sun</span>
+        </div>
+      </div>
+    </div>
     <div class="fin">
       <div class="controls card">
-        <div class="ctrl-head">Assumptions</div>
+        <div class="ctrl-head"><span>Assumptions &middot; local defaults</span><button type="button" class="reset-btn" id="resetBtn">Reset to local defaults</button></div>
         <div class="row"><label>New capacity <span class="val" id="lblKw">2,000 kW</span></label><input type="range" id="kw" min="500" max="3000" step="50" value="2000"></div>
         <div class="row"><label>Installed cost per watt <span class="val" id="lblCpw">$3.10</span></label><input type="range" id="cpw" min="2.4" max="4.2" step="0.05" value="3.10"></div>
         <div class="row"><label>Grant / ITC coverage <span class="val" id="lblGrant">30%</span></label><input type="range" id="grant" min="0" max="60" step="1" value="30"></div>
-        <div class="row"><label>New staff hired (FTE) <span class="val" id="lblFte">3</span></label><input type="range" id="fte" min="0" max="8" step="1" value="3"></div>
-        <div class="row"><label>Gas vehicle permit, annual <span class="val" id="lblGas">$99</span></label><input type="range" id="gas" min="0" max="200" step="1" value="99"></div>
-        <div class="row"><label>EV permit, annual <span class="val" id="lblEv">$50</span></label><input type="range" id="ev" min="0" max="150" step="1" value="50"></div>
-        <div class="row"><label>NEM 3.0 export rate <span class="val" id="lblExp">9&cent;</span></label><input type="range" id="exp" min="3" max="20" step="0.5" value="9"></div>
-        <div class="row"><label>PG&amp;E retail rate <span class="val" id="lblRet">43&cent;</span></label><input type="range" id="ret" min="25" max="60" step="1" value="43"></div>
+        <div class="row"><label>New staff, $95k each with benefits <span class="val" id="lblFte">3 FTE</span></label><input type="range" id="fte" min="0" max="8" step="1" value="3"></div>
+        <div class="row"><label>Gas vehicle permit, annual <span class="val" id="lblGas">$99</span></label><input type="range" id="gas" min="0" max="200" step="1" value="99"><span class="local-src">LPC campus parking, fall registration</span></div>
+        <div class="row"><label>EV permit, annual <span class="val" id="lblEv">$50</span></label><input type="range" id="ev" min="0" max="150" step="1" value="50"><span class="local-src">LPC campus parking, fall registration</span></div>
+        <div class="row"><label>NEM 3.0 export rate <span class="val" id="lblExp">9&cent;</span></label><input type="range" id="exp" min="3" max="20" step="0.5" value="9"><span class="local-src">PG&amp;E NEM 3.0, Livermore service area</span></div>
+        <div class="row"><label>PG&amp;E retail rate <span class="val" id="lblRet">43&cent;</span></label><input type="range" id="ret" min="25" max="60" step="1" value="43"><span class="local-src">PG&amp;E retail, Livermore 2026 (EnergySage)</span></div>
       </div>
       <div>
         <div class="tiles">
           <div class="tile amber"><div class="t-lbl">Gross capex</div><div class="t-val" id="oGross">--</div><div class="t-sub" id="oGrossSub"></div></div>
-          <div class="tile blue"><div class="t-lbl">Net capex after grants</div><div class="t-val" id="oNet">--</div><div class="t-sub" id="oNetSub"></div></div>
-          <div class="tile pos"><div class="t-lbl">Annual cash revenue</div><div class="t-val" id="oCash">--</div><div class="t-sub">grid export plus parking</div></div>
-          <div class="tile"><div class="t-lbl">Annual avoided cost</div><div class="t-val" id="oAvoid" style="color:var(--muted)">--</div><div class="t-sub">not spendable cash</div></div>
-          <div class="tile pos" id="netCashTile"><div class="t-lbl">Cash net (after ops, debt)</div><div class="t-val" id="oNetCash">--</div><div class="t-sub" id="oNetCashSub"></div></div>
-          <div class="tile amber"><div class="t-lbl">Payback on $1.9M</div><div class="t-val" id="oPayback">--</div><div class="t-sub">cash revenue only</div></div>
+          <div class="tile blue"><div class="t-lbl">Net capex after ITC</div><div class="t-val" id="oNet">--</div><div class="t-sub" id="oNetSub"></div></div>
+          <div class="tile pos"><div class="t-lbl">Avoided PG&amp;E cost</div><div class="t-val" id="oAvoid">--</div><div class="t-sub">the engine: self-use at retail rate</div></div>
+          <div class="tile"><div class="t-lbl">Extra cash revenue</div><div class="t-val" id="oCash" style="color:var(--txt)">--</div><div class="t-sub">grid export plus parking</div></div>
+          <div class="tile neg"><div class="t-lbl">CEC loan debt service</div><div class="t-val" id="oDebt">--</div><div class="t-sub" id="oDebtSub">1% over 20 yr · $3M program cap</div></div>
+          <div class="tile pos" id="netCashTile"><div class="t-lbl">Annual surplus to reinvest</div><div class="t-val" id="oNetCash">--</div><div class="t-sub" id="oNetCashSub"></div></div>
         </div>
-        <div class="note">Payback is measured against <b>cash only</b>, meaning grid exports and parking revenue net of operating costs and debt service. Avoided utility cost reduces the college share of the district utility budget, but it is not money the college can redeploy, so it is excluded from payback.</div>
+        <div class="note">The surplus is what funds the transition: <b>avoided cost + extra cash, minus operations, new staff, and loan payments.</b> That profit is reinvested into <b>free EV charging</b> and a campus <b>EV purchase grant</b> students and staff can apply for. Because the CEC loan is only 1% and the avoided PG&amp;E bill is large, the project is cash-positive from year one. NEM 3.0 export pays only 8 to 10 cents, so the real value is <b>avoiding</b> the 43 cent retail rate, not selling power back.</div>
 
-        <div class="baseline">
-          <div class="bl-head">Regional baseline (Livermore &amp; Las Positas averages)</div>
+        <div class="baseline local-ref">
+          <div class="bl-head">Local rate reference &middot; Livermore &amp; Las Positas</div>
           <div class="bl-grid">
-            <div class="bl"><b>5.5 hrs</b><span>Avg peak sun hours / day</span><em>Annual mean, Livermore</em></div>
+            <div class="bl"><b>5.5 hrs</b><span>Avg peak sun hours / day</span><em>NREL, Livermore</em></div>
             <div class="bl"><b>43&cent;/kWh</b><span>PG&amp;E retail rate</span><em>EnergySage, 2026</em></div>
             <div class="bl"><b>9&cent;/kWh</b><span>NEM 3.0 export rate</span><em>SolarPermitSolutions, 2026</em></div>
-            <div class="bl"><b>8,103</b><span>Fall enrollment</span><em>CollegeTuitionCompare</em></div>
-            <div class="bl"><b>$6.0M/yr</b><span>District utility budget</span><em>CLPCCD 2025-26 Adopted</em></div>
+            <div class="bl"><b>~$1.0M/yr</b><span>LPC electricity cost</span><em>Estimated annual PG&amp;E spend</em></div>
             <div class="bl"><b>2.35 MW</b><span>Existing PV array</span><em>On-campus, operational</em></div>
+            <div class="bl"><b>1% · $3M cap</b><span>CEC ECAA loan (20 yr)</span><em>State clean-energy financing</em></div>
           </div>
         </div>
       </div>
@@ -289,20 +445,25 @@
 <section id="sim">
   <div class="wrap">
     <div class="eyebrow">Full-Year Simulation</div>
-    <h2 class="title">Monthly cash revenue</h2>
-    <p class="lead" style="margin-bottom:20px">Modeled on Livermore seasonal data, with peak sun hours, UV index, enrollment by semester, and PG&amp;E time-of-use rate swings. Bars show <b>cash revenue only</b>. Select any month for detail.</p>
-    <div class="legend">
-      <span><i style="background:var(--blue)"></i> Grid export</span>
-      <span><i style="background:var(--amber)"></i> Gas parking</span>
-      <span><i style="background:var(--yellow)"></i> EV parking</span>
-      <span>Monthly net shown above each bar</span>
+    <h2 class="title">Monthly revenue &amp; avoided cost</h2>
+    <p class="lead" style="margin-bottom:20px">Modeled on Livermore seasonal data, with peak sun hours, UV index, enrollment by semester, and PG&amp;E time-of-use rate swings. Bars update live with the financial model sliders. <b>Tap or click any month</b> in the chart for a full breakdown.</p>
+    <div class="sim-opts">
+      <div class="legend" style="margin:0">
+        <span><i style="background:var(--green)"></i> Avoided PG&amp;E</span>
+        <span><i style="background:var(--blue)"></i> Grid export</span>
+        <span><i style="background:var(--red)"></i> Gas parking</span>
+        <span><i style="background:var(--yellow)"></i> EV parking</span>
+        <span>Monthly net shown above each bar</span>
+      </div>
+      <label class="avoid-toggle"><input type="checkbox" id="includeAvoided" checked> Include avoided cost in monthly net</label>
     </div>
     <div class="card" style="padding:16px">
       <div class="chart-wrap"><div class="chart" id="chart"></div></div>
+      <p class="chart-hint">Tap any month bar above for sun hours, enrollment, export, avoided cost, and net profit.</p>
     </div>
     <div class="detail" id="moDetail">
       <h4>Select a month above</h4>
-      <p>Each month reflects seasonal sun hours, semester enrollment, and rate fluctuation. <b style="color:var(--txt)">September peaks</b> because annual parking permits ($99 gas, $50 EV) are billed as a lump sum at fall registration.</p>
+      <p>Tap or click a month in the chart to see its breakdown. Each month reflects seasonal sun hours, semester enrollment, and rate fluctuation. <b style="color:var(--txt)">September peaks</b> because annual parking permits are collected in full at fall registration.</p>
     </div>
   </div>
 </section>
@@ -319,8 +480,8 @@
           <rect width="13" height="13" fill="transparent"/><line x1="0" y1="0" x2="0" y2="13" stroke="rgba(13,27,42,.25)" stroke-width="1.5"/>
         </pattern>
       </defs>
-      <path d="M40 230 H760" stroke="#1d3347" stroke-width="9" fill="none"/>
-      <path d="M400 30 V430" stroke="#1d3347" stroke-width="9" fill="none"/>
+      <path d="M40 230 H760" stroke="#153A1C" stroke-width="9" fill="none"/>
+      <path d="M400 30 V430" stroke="#153A1C" stroke-width="9" fill="none"/>
       <g class="lot" data-lot="O"><rect class="fill" x="430" y="250" width="150" height="80" rx="6" fill="#F5A623" fill-opacity=".92"/><rect x="430" y="250" width="150" height="80" rx="6" fill="url(#panels)"/><text class="lot-label" x="505" y="288" text-anchor="middle">O</text><text class="lot-sub" x="505" y="304" text-anchor="middle">Phase 1 / nearest array</text></g>
       <g class="lot" data-lot="P"><rect class="fill" x="600" y="250" width="150" height="80" rx="6" fill="#F5A623" fill-opacity=".92"/><rect x="600" y="250" width="150" height="80" rx="6" fill="url(#panels)"/><text class="lot-label" x="675" y="288" text-anchor="middle">P</text><text class="lot-sub" x="675" y="304" text-anchor="middle">Phase 1</text></g>
       <g class="lot" data-lot="A"><rect class="fill" x="430" y="345" width="150" height="75" rx="6" fill="#F5A623" fill-opacity=".92"/><rect x="430" y="345" width="150" height="75" rx="6" fill="url(#panels)"/><text class="lot-label" x="505" y="380" text-anchor="middle">A</text><text class="lot-sub" x="505" y="396" text-anchor="middle">Phase 1</text></g>
@@ -332,14 +493,14 @@
       <g class="lot" data-lot="G"><rect class="fill" x="50" y="120" width="150" height="100" rx="6" fill="#1D9E75" fill-opacity=".85"/><rect x="50" y="120" width="150" height="100" rx="6" fill="url(#panels)"/><text class="lot-label" x="125" y="168" text-anchor="middle">G</text><text class="lot-sub" x="125" y="184" text-anchor="middle">Phase 3</text></g>
       <g class="lot" data-lot="H"><rect class="fill" x="50" y="250" width="150" height="80" rx="6" fill="#1D9E75" fill-opacity=".85"/><rect x="50" y="250" width="150" height="80" rx="6" fill="url(#panels)"/><text class="lot-label" x="125" y="288" text-anchor="middle">H</text><text class="lot-sub" x="125" y="304" text-anchor="middle">Phase 3</text></g>
       <g class="lot" data-lot="J"><rect class="fill" x="50" y="345" width="150" height="75" rx="6" fill="#1D9E75" fill-opacity=".85"/><rect x="50" y="345" width="150" height="75" rx="6" fill="url(#panels)"/><text class="lot-label" x="125" y="380" text-anchor="middle">J</text><text class="lot-sub" x="125" y="396" text-anchor="middle">Phase 3</text></g>
-      <g><rect x="600" y="345" width="150" height="75" rx="6" fill="#0c1a2a" stroke="#264058" stroke-width="1.5" stroke-dasharray="5 4"/><text x="675" y="375" text-anchor="middle" fill="#8499AE" font-size="11.5" font-weight="700">Existing 2.35 MW</text><text x="675" y="391" text-anchor="middle" fill="#8499AE" font-size="9.5">PV array / interconnection</text></g>
+      <g><rect x="600" y="345" width="150" height="75" rx="6" fill="#071B0D" stroke="#1C4425" stroke-width="1.5" stroke-dasharray="5 4"/><text x="675" y="375" text-anchor="middle" fill="#6B9877" font-size="11.5" font-weight="700">Existing 2.35 MW</text><text x="675" y="391" text-anchor="middle" fill="#6B9877" font-size="9.5">PV array / interconnection</text></g>
       <text x="400" y="445" text-anchor="middle" fill="#5d7790" font-size="11">Schematic, not to scale</text>
     </svg>
     <div class="phase-key">
       <span class="pk"><i style="background:var(--amber)"></i> Phase 1, priority (O, P, A)</span>
       <span class="pk"><i style="background:var(--blue)"></i> Phase 2 (B, C, D)</span>
       <span class="pk"><i style="background:var(--green)"></i> Phase 3 (E, F, G, H, J)</span>
-      <span class="pk"><i style="background:#0c1a2a;border:1px dashed #264058"></i> Existing 2.35 MW array</span>
+      <span class="pk"><i style="background:#071B0D;border:1px dashed #1C4425"></i> Existing 2.35 MW array</span>
     </div>
     <div class="card" id="lotInfo" style="font-size:13.5px;color:var(--txt-2)">Select a lot to see its phase and rationale. <b style="color:var(--txt)">Lot O</b> leads because it is adjacent to the existing array and the established grid interconnection point, which minimizes trenching and study cost.</div>
   </div>
@@ -350,8 +511,33 @@
   <div class="wrap">
     <div class="eyebrow">Path to Operation</div>
     <h2 class="title">Two-year registration timeline</h2>
-    <p class="lead" style="margin-bottom:24px">From board approval to Permission to Operate. The <b style="color:var(--red)">PG&amp;E Rule 21 interconnection study</b> is the critical path, gating every step downstream.</p>
-    <div class="tl"><div class="tl-track" id="tlTrack"></div></div>
+    <p class="lead" style="margin-bottom:24px">From board approval to Permission to Operate in roughly two years, with soft costs of about <b>$75k to $150k</b> total. The <b style="color:var(--red)">PG&amp;E Rule 21 interconnection study</b> is the critical path. Because LPC already has a 2.35 MW system connected, we may file an expedited amendment and cut 4 to 6 months off it.</p>
+    <div class="tl-wrap">
+      <div class="tl-head">
+        <span class="tl-pill"><b>~24 months</b> board approval to PTO</span>
+        <span class="tl-pill crit">Rule 21 study = critical path</span>
+        <span class="tl-pill goal">Step 8 = go-live</span>
+      </div>
+      <div class="tl"><div class="tl-track" id="tlTrack"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5b. PAYOFF -->
+<section id="payoff">
+  <div class="wrap">
+    <div class="eyebrow">The Payoff</div>
+    <h2 class="title">Where the freed-up money goes</h2>
+    <p class="lead" style="margin-bottom:26px">Once solar offsets the PG&amp;E bill, the <b>annual surplus is reinvested on campus</b>, starting with free EV charging and a grant program that helps students and staff afford a new electric vehicle. The parking pass rises only about <b>$5</b> for most people, while a heavier fee on gas vehicles helps fund the transition.</p>
+    <div class="ch-grid">
+      <div class="ch" style="border-top-color:var(--green)"><span class="tag">Charging</span><h4>Free EV charging</h4><p>Plant profits fund abundant, <b>free charging</b> across the carport lots, installed and operated from the annual surplus so range anxiety stops being a reason to say no to electric.</p></div>
+      <div class="ch" style="border-top-color:var(--amber)"><span class="tag">Grant program</span><h4>EV purchase grants</h4><p>A portion of each year's profit goes into a <b>campus grant pool</b>. Students and staff apply for awards that cover part of the cost of buying a new EV, lowering the upfront price that field research showed was the biggest barrier.</p></div>
+      <div class="ch" style="border-top-color:var(--blue)"><span class="tag">Transit</span><h4>Better transit access</h4><p>Funding to connect campus to nodes like the planned Valley Link hydrogen train near Isabel and the freeway.</p></div>
+      <div class="ch" style="border-top-color:var(--yellow)"><span class="tag">Shade</span><h4>Carports as shade</h4><p>The panels double as cover for cars and people, cooling the hot spots students pointed out.</p></div>
+      <div class="ch" style="border-top-color:var(--green)"><span class="tag">Jobs</span><h4>Staff &amp; CTE programs</h4><p>Revenue covers power-plant staff and can open new Career &amp; Technical Education programs in clean energy.</p></div>
+      <div class="ch" style="border-top-color:var(--blue)"><span class="tag">Resilience</span><h4>Power during outages</h4><p>On-site generation and storage keep critical campus systems running when the grid goes down.</p></div>
+    </div>
+    <div class="note" style="border-left-color:var(--green);margin-top:18px"><b>Reinvestment priority:</b> after debt service and operations, surplus profit flows first to <b>free EV charging</b> and the <b>EV purchase grant program</b>, then to transit, shade, and staff. Grant size and eligibility would be set by the district with board approval. Proven elsewhere: <b>San Diego Community College District</b> reports saving over $1M a year across the district, and <b>Glendale College</b> secured a $3M CEC loan at 1% for a 784 kW carport system in February 2025.</div>
   </div>
 </section>
 
@@ -360,19 +546,23 @@
   <div class="wrap">
     <div class="eyebrow">Capital Stack</div>
     <h2 class="title">Financing breakdown</h2>
-    <p class="lead">How the $9.53M gross cost is funded. Debt service runs roughly $447k per year over 15 years on the CEC loan.</p>
+    <p class="lead">For a ~2 MW carport build of about <b>$6.2M gross</b>, no single source covers the full cost. The stack combines federal tax credits, a capped 1% state loan, and district and local tools: <b>bonds, parcel tax, state grants, and supplemental loans.</b></p>
     <div class="fin-bar">
-      <div class="fin-seg" style="background:var(--blue);flex:6.2" title="CEC 1% ECAA loan">CEC Loan, $6.2M</div>
-      <div class="fin-seg" style="background:var(--green);flex:1.43" title="Federal ITC and grants">ITC, $1.43M</div>
-      <div class="fin-seg" style="background:var(--amber);flex:1.9" title="Out of pocket">Out of pocket, $1.9M</div>
+      <div class="fin-seg" style="background:var(--green);flex:1.9" title="Federal ITC">Federal ITC, ~$1.9M</div>
+      <div class="fin-seg" style="background:var(--blue);flex:3" title="CEC 1% ECAA loan, $3M program cap">CEC 1% loan, up to $3M</div>
+      <div class="fin-seg" style="background:var(--amber);flex:1.3" title="Bonds, parcel tax, state grants, other loans">Bonds, grants &amp; parcel tax, ~$1.3M</div>
     </div>
     <div class="fin-legend">
-      <div class="fl"><i style="background:var(--blue)"></i><div><b>$6.2M</b><span>CEC 1% ECAA loan. Low-interest state clean-energy financing, repaid via debt service.</span></div></div>
-      <div class="fl"><i style="background:var(--green)"></i><div><b>$1.43M</b><span>Federal ITC and grants. Investment Tax Credit and incentive offsets reduce gross cost.</span></div></div>
-      <div class="fl"><i style="background:var(--amber)"></i><div><b>$1.9M</b><span>District out of pocket. The real cash investment that payback is measured against.</span></div></div>
-      <div class="fl"><i style="background:var(--red)"></i><div><b>$447k/yr</b><span>Annual debt service on the CEC loan over a 15-year term.</span></div></div>
+      <div class="fl"><i style="background:var(--blue)"></i><div><b>Up to $3M</b><span>CEC ECAA loan at 1% over 20 years. The program caps each award at <b>$3M</b> (Glendale College secured the full amount for its 784 kW carport in Feb 2025).</span></div></div>
+      <div class="fl"><i style="background:var(--green)"></i><div><b>~$1.9M</b><span>Federal Investment Tax Credit, roughly 30% of gross cost, applied up front to shrink what must be borrowed.</span></div></div>
+      <div class="fl"><i style="background:var(--amber)"></i><div><b>District bonds</b><span>General-obligation or climate bonds can finance capital projects across the CLPCCD, spreading cost over decades at district credit rates.</span></div></div>
+      <div class="fl"><i style="background:var(--yellow)"></i><div><b>Parcel tax</b><span>A voter-approved local measure can raise dedicated revenue for campus infrastructure, including solar carports and EV charging.</span></div></div>
+      <div class="fl"><i style="background:var(--green)"></i><div><b>State grants &amp; funding</b><span>CEC clean-energy programs, California Energy Commission grants, and other state incentives beyond the federal ITC.</span></div></div>
+      <div class="fl"><i style="background:var(--blue)"></i><div><b>Other loans</b><span>Supplemental financing to close any gap after ITC, the CEC loan, bonds, parcel tax, and grants are applied.</span></div></div>
+      <div class="fl"><i style="background:var(--red)"></i><div><b>~$165k/yr</b><span>Debt service on a maxed-out $3M CEC loan. Far less than the ~$1M/yr PG&amp;E bill the project replaces.</span></div></div>
+      <div class="fl"><i style="background:var(--amber)"></i><div><b>Act now</b><span>The last CEC funding cycle closed November 2025. Join the CEC mailing list to catch the next opening.</span></div></div>
     </div>
-    <div class="note" style="border-left-color:var(--amber)">Avoided cost is not cash. The roughly $900k per year in avoided utility cost reduces the college share of the district $6.0M annual utility budget, a real institutional saving, but not spendable revenue. Only grid exports and parking fees produce cash the college can redeploy toward EV charging and staffing.</div>
+    <div class="note" style="border-left-color:var(--green)">The math that makes it work: a roughly <b>$1M/year avoided PG&amp;E bill</b> covers even a maxed-out $3M CEC payment many times over. Bonds, parcel tax, and state grants fill the gap above the loan cap; the surplus funds free EV charging, EV purchase grants, transit, and staff. The district's wider utility budget is about $6M/yr (CLPCCD 2025-26).</div>
   </div>
 </section>
 
@@ -383,13 +573,14 @@
     <h2 class="title">Challenges and open questions</h2>
     <p class="lead" style="margin-bottom:24px">A candid accounting of what could complicate or delay the project.</p>
     <div class="ch-grid">
-      <div class="ch"><span class="tag">Grid</span><h4>PG&amp;E grid upgrade costs</h4><p>Interconnection-driven upgrades are unknown until the Rule 21 study completes, potentially a six-figure swing in net cost.</p></div>
-      <div class="ch"><span class="tag">Market</span><h4>NEM 3.0 low export rates</h4><p>Export compensation near 9 cents is far below the 43 cent retail rate, so on-site use and storage matter more than selling back.</p></div>
-      <div class="ch"><span class="tag">Operations</span><h4>CAISO scheduling complexity</h4><p>Operating as a registered DG facility adds market scheduling and metering obligations beyond a simple net-metered system.</p></div>
-      <div class="ch"><span class="tag">Labor</span><h4>Union negotiations</h4><p>New faculty and staff parking fees ($99 gas, $50 EV) require bargaining, a political and contractual hurdle, not just a billing change.</p></div>
-      <div class="ch"><span class="tag">Safety</span><h4>Battery fire code</h4><p>Adding storage triggers fire-code setbacks, ventilation, and inspection requirements that raise cost and siting complexity.</p></div>
-      <div class="ch"><span class="tag">Policy</span><h4>Federal funding instability</h4><p>ITC levels and federal incentives can shift with policy, so the $1.43M grant assumption carries real exposure.</p></div>
-      <div class="ch"><span class="tag">Governance</span><h4>Board turnover risk</h4><p>A two-year timeline spans election cycles, and changing board priorities could stall or defund the project mid-stream.</p></div>
+      <div class="ch"><span class="tag">Grid</span><h4>PG&amp;E grid upgrade costs</h4><p>The study may find the local grid needs upgrades to handle the added export. That bill lands on us and can run from $50k to $500k or more. We will not know until the study is done.</p></div>
+      <div class="ch"><span class="tag">Market</span><h4>NEM 3.0 low export rates</h4><p>Export pays only 8 to 10 cents per kWh, about 75% less than the old NEM 2.0. The real value is self-use at 43 cents, so storage has to absorb the summer surplus.</p></div>
+      <div class="ch"><span class="tag">Structure</span><h4>Seismic and wind loads</h4><p>Livermore sits in a seismic zone and gets strong wind off the Altamont Pass. Every carport needs engineered footings and wind-load calculations, adding cost over rooftop solar.</p></div>
+      <div class="ch"><span class="tag">Safety</span><h4>Battery fire code</h4><p>Adding 2,000 to 4,000 kWh of lithium storage triggers NFPA 855 review by the Livermore Fire Department, with setbacks, ventilation, and inspections.</p></div>
+      <div class="ch"><span class="tag">Supply</span><h4>Contractor availability</h4><p>The Bay Area solar market is busy. A carport build across 11 lots could face 6 to 12 month waits for a start date, worsened by Alameda County permit backlogs.</p></div>
+      <div class="ch"><span class="tag">Lifespan</span><h4>Equipment replacement</h4><p>Batteries last about 10 years and inverters 10 to 15. Panels keep 80% output at 25 years, with premium panels warrantied up to 40. Replacement must be budgeted.</p></div>
+      <div class="ch"><span class="tag">Legal</span><h4>Selling power means regulation</h4><p>Generating more than we use under NEM does not make us a power plant. Selling commercially engages FERC, CPUC, and CEC. We would need an energy attorney to structure it.</p></div>
+      <div class="ch"><span class="tag">Policy</span><h4>Federal funding instability</h4><p>The ITC and federal incentives can shift with policy, so the ~30% credit that shrinks the financed amount carries real exposure if rules change.</p></div>
     </div>
   </div>
 </section>
@@ -398,13 +589,14 @@
   <div class="wrap">
     <h5>Data Sources</h5>
     <ol>
+      <li>2018 emissions of 13,239 metric tons CO2, 73% from student commuting, Net-Zero 2035 and grid-independent 2030 goals: LPC Climate Action Plan, 2024 draft.</li>
       <li>PG&amp;E retail rate of $0.43/kWh: EnergySage, 2026.</li>
-      <li>District utility spend of $6.0M/yr: CLPCCD 2025-26 Adopted Budget.</li>
-      <li>Enrollment of 8,103 students: CollegeTuitionCompare.</li>
-      <li>NEM 3.0 export rate: SolarPermitSolutions, 2026.</li>
+      <li>NEM 3.0 export rate (8 to 10 cents): SolarPermitSolutions, 2026.</li>
       <li>Average peak sun hours (5.5/day): NREL regional irradiance, Livermore CA.</li>
+      <li>Enrollment of 8,103 students: CollegeTuitionCompare. District utility spend ~$6M/yr: CLPCCD 2025-26 Adopted Budget.</li>
+      <li>Precedents: Glendale College $3M CEC loan at 1% for a 784 kW carport (Feb 2025); San Diego CCD reports $1M+/yr district savings.</li>
     </ol>
-    <div class="disclaimer">This is an illustrative civic proposal dashboard. All figures are planning estimates for discussion, and the interactive model is a simplified projection, not a financial guarantee. Final costs depend on the PG&amp;E interconnection study, competitive bids, and prevailing incentive programs.</div>
+    <div class="disclaimer">This is an illustrative civic proposal dashboard. All figures are planning estimates for discussion, and the interactive model is a simplified projection, not a financial guarantee. Final costs depend on the PG&amp;E interconnection study, competitive bids, and prevailing incentive programs. Some campus values, such as the ~$1M annual electricity cost and permit-holder counts, are estimates.</div>
   </div>
 </footer>
 
@@ -438,17 +630,20 @@ const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
 const fmtM=n=>'$'+(n/1e6).toFixed(2)+'M';
 const ASSUME={
   sunHrs:5.5, perfRatio:0.80, evShare:0.18, permitHolders:5200,
-  ftesCost:95000, opsPerKw:18, outOfPocket:1.9e6, debtService:447000, selfConsume:0.55
+  ftesCost:95000, opsPerKw:18, selfConsume:0.55, loanRate:0.01, loanTerm:20
 };
+// CEC ECAA loan: level annual payment (annuity) on a principal
+const annuity=p=>{const r=ASSUME.loanRate,n=ASSUME.loanTerm;return p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);};
 const ids=['kw','cpw','grant','fte','gas','ev','exp','ret'];
 const el=id=>document.getElementById(id);
+const DEFAULTS={};ids.forEach(id=>DEFAULTS[id]=el(id).value);
 function setSlider(id){const e=el(id);e.style.setProperty('--p',(e.value-e.min)/(e.max-e.min)*100+'%');}
 function calc(){
   const v={kw:+kw.value,cpw:+cpw.value,grant:+grant.value,fte:+fte.value,gas:+gas.value,ev:+ev.value,exp:+exp.value,ret:+ret.value};
   lblKw.textContent=v.kw.toLocaleString()+' kW';
   lblCpw.textContent='$'+v.cpw.toFixed(2);
   lblGrant.textContent=v.grant+'%';
-  lblFte.textContent=v.fte;
+  lblFte.textContent=v.fte+' FTE';
   lblGas.textContent='$'+v.gas;
   lblEv.textContent='$'+v.ev;
   lblExp.textContent=v.exp+'¢';
@@ -466,22 +661,27 @@ function calc(){
   const avoided=selfUse*(v.ret/100);
   const ops=v.kw*ASSUME.opsPerKw;
   const staff=v.fte*ASSUME.ftesCost;
-  const netCash=cashRev-ops-staff-ASSUME.debtService;
-  const payback=netCash>0?ASSUME.outOfPocket/netCash:null;
+  const debt=annuity(Math.min(net,3e6));
+  const surplus=avoided+cashRev-ops-staff-debt;
 
   oGross.textContent=fmtM(gross);
   oGrossSub.textContent='$'+v.cpw.toFixed(2)+'/W on '+v.kw.toLocaleString()+' kW';
   oNet.textContent=fmtM(net);
-  oNetSub.textContent=v.grant+'% covered by grants';
-  oCash.textContent=fmt(cashRev)+'/yr';
+  oNetSub.textContent=v.grant+'% covered by ITC / grants';
   oAvoid.textContent=fmt(avoided)+'/yr';
-  oNetCash.textContent=(netCash>=0?'+':'−')+fmt(Math.abs(netCash))+'/yr';
-  netCashTile.className='tile '+(netCash>=0?'pos':'neg');
-  oNetCashSub.textContent='after $'+Math.round(ops/1000)+'k ops, $'+Math.round(staff/1000)+'k staff, $447k debt';
-  oPayback.textContent=payback?payback.toFixed(1)+' yrs':'over term';
+  oCash.textContent=fmt(cashRev)+'/yr';
+  oDebt.textContent=fmt(debt)+'/yr';
+  oDebtSub.textContent='1% over 20 yr on '+fmtM(Math.min(net,3e6))+(net>3e6?' (CEC $3M cap)':'');
+  oNetCash.textContent=(surplus>=0?'+':'−')+fmt(Math.abs(surplus))+'/yr';
+  netCashTile.className='tile '+(surplus>=0?'pos':'neg');
+  oNetCashSub.textContent='after $'+Math.round(ops/1000)+'k ops, $'+Math.round(staff/1000)+'k staff, debt';
+  renderSim();
+}
+function sliderVals(){
+  return{kw:+kw.value,cpw:+cpw.value,grant:+grant.value,fte:+fte.value,gas:+gas.value,ev:+ev.value,exp:+exp.value,ret:+ret.value};
 }
 ids.forEach(id=>el(id).addEventListener('input',calc));
-calc();
+document.getElementById('resetBtn').addEventListener('click',()=>{ids.forEach(id=>el(id).value=DEFAULTS[id]);calc();});
 
 /* simulation */
 const MONTHS=[
@@ -498,36 +698,54 @@ const MONTHS=[
   {m:'Nov',sun:4.9,uv:3,enroll:8100,tou:.97,note:'Production falls toward the winter low. Peak campus occupancy keeps self-consumption high.'},
   {m:'Dec',sun:4.6,uv:2,enroll:8100,tou:.95,note:'Annual generation floor at 4.6 peak sun hours per day. The shortest days put export revenue at its minimum.'}
 ];
-function monthData(){
-  const kw=2000,exp=9,gas=99,ev=50,permit=ASSUME.permitHolders,evShare=ASSUME.evShare;
+let MD=[],activeMonth=null;
+const chart=document.getElementById('chart');
+function chartBarMax(){return window.innerWidth<=480?155:window.innerWidth<=820?195:230;}
+function monthData(v){
+  const gross=v.kw*1000*v.cpw,netCapex=gross*(1-v.grant/100);
+  const debt=annuity(Math.min(netCapex,3e6)),staff=v.fte*ASSUME.ftesCost,ops=v.kw*ASSUME.opsPerKw;
+  const includeAvoided=el('includeAvoided').checked;
+  const permit=ASSUME.permitHolders,evShare=ASSUME.evShare;
   return MONTHS.map((M,i)=>{
-    const kWh=kw*M.sun*30.4*ASSUME.perfRatio;
-    const exportRev=kWh*(1-ASSUME.selfConsume)*(exp/100)*M.tou;
-    const annualGas=permit*(1-evShare)*gas, annualEv=permit*evShare*ev;
-    let parkGas,parkEv;
-    if(i===8){parkGas=annualGas*0.80;parkEv=annualEv*0.80;}
-    else{parkGas=annualGas*0.20/11;parkEv=annualEv*0.20/11;}
+    const kWh=v.kw*M.sun*30.4*ASSUME.perfRatio;
+    const exportRev=kWh*(1-ASSUME.selfConsume)*(v.exp/100)*M.tou;
+    const avoided=kWh*ASSUME.selfConsume*(v.ret/100)*M.tou;
+    const annualGas=permit*(1-evShare)*v.gas,annualEv=permit*evShare*v.ev;
+    const parkGas=i===8?annualGas:0,parkEv=i===8?annualEv:0;
     const cash=exportRev+parkGas+parkEv;
-    const net=cash-(kw*ASSUME.opsPerKw/12)-ASSUME.debtService/12;
-    return{...M,exportRev,parkGas,parkEv,cash,net};
+    const revenue=cash+(includeAvoided?avoided:0);
+    const net=revenue-ops/12-staff/12-debt/12;
+    return{...M,exportRev,parkGas,parkEv,avoided,cash,revenue,net};
   });
 }
-const MD=monthData(),maxCash=Math.max(...MD.map(d=>d.cash)),chart=document.getElementById('chart');
-MD.forEach((d,i)=>{
-  const col=document.createElement('div');col.className='barcol';col.dataset.i=i;
-  const h=Math.max((d.cash/maxCash)*230,1);
-  col.innerHTML='<div class="net">'+(d.net>=0?'+':'−')+'$'+Math.round(Math.abs(d.net)/1000)+'k</div>'+
-    '<div class="bar-stack" style="height:'+h+'px">'+
-    '<div class="seg export" style="height:'+(d.exportRev/d.cash*100)+'%"></div>'+
-    '<div class="seg gas" style="height:'+(d.parkGas/d.cash*100)+'%"></div>'+
-    '<div class="seg ev" style="height:'+(d.parkEv/d.cash*100)+'%"></div></div>'+
-    '<div class="mo">'+d.m+'</div>';
-  col.addEventListener('click',()=>showMonth(i));
-  chart.appendChild(col);
-});
+function renderSim(){
+  const v=sliderVals();
+  MD=monthData(v);
+  const maxTotal=Math.max(...MD.map(d=>d.cash+d.avoided),1);
+  chart.innerHTML='';
+  MD.forEach((d,i)=>{
+    const total=d.cash+d.avoided,h=Math.max(total/maxTotal*chartBarMax(),1);
+    const pct=t=>total?Math.max(t/total*100,0):0;
+    const col=document.createElement('div');
+    col.className='barcol'+(activeMonth===i?' active':'');
+    col.dataset.i=i;
+    col.innerHTML='<div class="net">'+(d.net>=0?'+':'−')+'$'+Math.round(Math.abs(d.net)/1000)+'k</div>'+
+      '<div class="bar-stack" style="height:'+h+'px">'+
+      '<div class="seg avoid" style="height:'+pct(d.avoided)+'%"></div>'+
+      '<div class="seg export" style="height:'+pct(d.exportRev)+'%"></div>'+
+      '<div class="seg gas" style="height:'+pct(d.parkGas)+'%"></div>'+
+      '<div class="seg ev" style="height:'+pct(d.parkEv)+'%"></div></div>'+
+      '<div class="mo">'+d.m+'</div>';
+    col.addEventListener('click',()=>{activeMonth=i;showMonth(i);document.querySelectorAll('.barcol').forEach(c=>c.classList.toggle('active',+c.dataset.i===i));});
+    chart.appendChild(col);
+  });
+  if(activeMonth!==null)showMonth(activeMonth);
+}
+el('includeAvoided').addEventListener('change',renderSim);
+let resizeT;window.addEventListener('resize',()=>{clearTimeout(resizeT);resizeT=setTimeout(renderSim,120);});
+calc();
 function showMonth(i){
-  const d=MD[i];
-  document.querySelectorAll('.barcol').forEach(c=>c.classList.toggle('active',+c.dataset.i===i));
+  const d=MD[i],includeAvoided=el('includeAvoided').checked;
   document.getElementById('moDetail').innerHTML=
     '<h4>'+d.m+(d.m==='Sep'?', fall registration peak':'')+'</h4>'+
     '<p>'+d.note+'</p>'+
@@ -536,10 +754,12 @@ function showMonth(i){
     '<div><b>'+d.uv+'</b><span>UV index</span></div>'+
     '<div><b>'+d.enroll.toLocaleString()+'</b><span>students enrolled</span></div>'+
     '<div><b>'+d.tou.toFixed(2)+'x</b><span>TOU rate factor</span></div>'+
+    '<div><b style="color:var(--green)">$'+Math.round(d.avoided).toLocaleString()+'</b><span>avoided PG&amp;E</span></div>'+
     '<div><b style="color:var(--blue)">$'+Math.round(d.exportRev).toLocaleString()+'</b><span>grid export</span></div>'+
-    '<div><b style="color:var(--amber)">$'+Math.round(d.parkGas+d.parkEv).toLocaleString()+'</b><span>parking cash</span></div>'+
-    '<div><b style="color:var(--green)">$'+Math.round(d.cash).toLocaleString()+'</b><span>total cash</span></div>'+
-    '<div><b style="color:'+(d.net>=0?'var(--green)':'var(--red)')+'">'+(d.net>=0?'+':'−')+'$'+Math.round(Math.abs(d.net)).toLocaleString()+'</b><span>monthly net</span></div>'+
+    '<div><b style="color:var(--red)">$'+Math.round(d.parkGas).toLocaleString()+'</b><span>gas parking</span></div>'+
+    '<div><b style="color:var(--yellow)">$'+Math.round(d.parkEv).toLocaleString()+'</b><span>EV parking</span></div>'+
+    '<div><b>$'+Math.round(d.cash).toLocaleString()+'</b><span>total cash</span></div>'+
+    '<div><b style="color:'+(d.net>=0?'var(--green)':'var(--red)')+'">'+(d.net>=0?'+':'−')+'$'+Math.round(Math.abs(d.net)).toLocaleString()+'</b><span>monthly net'+(includeAvoided?'':' (cash only)')+'</span></div>'+
     '</div>';
 }
 
@@ -568,28 +788,32 @@ document.querySelectorAll('.lot').forEach(g=>{
 /* timeline */
 const STEPS=[
   ['Board approval','Trustee vote to authorize the project.','$0','Month 0',false],
-  ['Hire PE engineer','Retain a licensed professional engineer for design.','$80k to $150k','1 to 2 mo',false],
-  ['Rule 21 study','PG&E interconnection study.','$50k to $250k','6 to 12 mo',true],
-  ['CEQA filing','State environmental review.','$40k to $120k','3 to 6 mo',false],
-  ['Livermore permits','City building and electrical permits.','$30k to $90k','2 to 4 mo',false],
-  ['CAISO registration','Register as a distributed generation facility.','$20k to $60k','2 to 4 mo',false],
-  ['Construction','Carport canopies and electrical work.','$7M to $8M','4 to 8 mo',false],
+  ['Hire PE engineer','Retain a licensed professional engineer for design.','$40k to $80k','1 to 2 mo',false],
+  ['Rule 21 study','PG&E interconnection study. Existing 2.35 MW system may allow an expedited amendment.','$20k to $60k','6 to 12 mo',true],
+  ['CEQA filing','State environmental review.','$15k to $40k','3 to 6 mo',false],
+  ['Livermore permits','City building and electrical permits.','$15k to $40k','2 to 4 mo',false],
+  ['Power-plant registration','Register the facility to operate.','$10k to $30k','2 to 4 mo',false],
+  ['Construction','Carport canopies and electrical work, financed.','$3M to $6M','4 to 8 mo',false],
   ['Permission to Operate','PG&E PTO and go-live.','$0','1 to 2 mo',false]
 ];
 const tl=document.getElementById('tlTrack');
 STEPS.forEach((s,i)=>{
+  const last=i===STEPS.length-1;
   const d=document.createElement('div');
-  d.className='tl-step'+(s[4]?' crit':'');
+  d.className='tl-step'+(s[4]?' crit':'')+(last?' last':'');
+  d.style.transitionDelay=(i*0.07)+'s';
   d.innerHTML='<div class="tl-node">'+(i+1)+'</div>'+
-    '<div class="tl-card'+(s[4]?' crit':'')+'">'+
-    '<h4>'+s[0]+'</h4>'+
+    '<div class="tl-card'+(s[4]?' crit':'')+(last?' last':'')+'">'+
     '<div class="dur">'+s[3]+'</div>'+
+    '<h4>'+s[0]+'</h4>'+
     '<div class="desc">'+s[1]+'</div>'+
     '<div class="cost">'+s[2]+'</div>'+
     (s[4]?'<span class="crit-tag">Critical path</span>':'')+
     '</div>';
   tl.appendChild(d);
 });
+const tlObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.tl-step').forEach(s=>s.classList.add('vis'));tlObs.disconnect();}});},{threshold:.15});
+tlObs.observe(document.querySelector('.tl-wrap'));
 </script>
 </body>
 </html>
